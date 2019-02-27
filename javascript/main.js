@@ -105,6 +105,8 @@ $(document).ready(() => {
     }
   });
 
+
+
   $('#postSubmit').click(function (e) {
     e.preventDefault();
 
@@ -119,8 +121,7 @@ $(document).ready(() => {
       info: $info.val()
     };
 
-    $('#postForm').trigger("reset");
-
+    $('#postForm').trigger("reset"); 
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/animals',
@@ -134,6 +135,27 @@ $(document).ready(() => {
     })
   })
 
+  //get for seachBox
+  $('#search').click(function (e) {
+    e.preventDefault();
+    let $searchName = $('#searchName');
+    $searchName = $searchName.val();
+
+    $('#searchName').trigger("reset"); 
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:3000/animals?q=' + $searchName,
+    success: function (animals) { //animals == booklists && book == animal
+      $.each(animals, (i, animal) => {
+        addAnimal(animal);
+      })
+    },
+    error: function () {
+      alert('error loading orders');
+    }
+  });
+});
 
 
   //   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
