@@ -21,7 +21,16 @@ div.flex{
     padding-top: 10px;  
     font-weight: 900;
     font-size: 2rem;
+    margin-right: 70px;
 }
+
+p.explore {
+    font-size: 1.3rem;
+}
+p.explore:hover {
+    text-decoration: underline;
+}
+
 div.header-search {
     border: 1px solid rgb(255, 255, 255);
     width: 35vw;
