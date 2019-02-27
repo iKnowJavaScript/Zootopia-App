@@ -36,6 +36,7 @@ $(function() {
 
 $(document).ready(() => {
   let $divAppend = $('#divAppend'); //$booklist
+  let $divAppendAdmin = $('#divAppendAdmin');
   let $name = $('#name'); //tittle
   let $species = $('#species');
   let $family = $('#family');
@@ -66,14 +67,29 @@ $(document).ready(() => {
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
           </div>
         </div>
       </div>
     </div>
   </div>
     `);
-    console.log(animal.image)
+    //console.log(animal.image)
+
+    $divAppendAdmin.append(`<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" src=${animal.image} alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text">${animal.info}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    `);
   }
 
   $.ajax({
@@ -120,18 +136,18 @@ $(document).ready(() => {
 
 
 
-    // $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
-    //   e.preventDefault();
-    //   let $tr = $(this).closest('tr');
+  //   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
+  //     e.preventDefault();
+  //     let $tr = $(this).closest('tr');
 
-    //   $.ajax({
-    //     type: 'DELETE',
-    //     url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
-    //     success: function() {
-    //       $tr.fadeOut(300, function() {
-    //         $(this).remove();
-    //       })
-    //     }
-    //   })
-    // })
+  //     $.ajax({
+  //       type: 'DELETE',
+  //       url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
+  //       success: function() {
+  //         $tr.fadeOut(300, function() {
+  //           $(this).remove();
+  //         })
+  //       }
+  //     })
+  //   })
 })
