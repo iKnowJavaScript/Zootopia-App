@@ -1,14 +1,52 @@
-div.container-heading {
+body {
+   background-color: rgb(217, 222, 226); 
+}
+#nav-style {
+    background-color: rgb(64, 97, 141);
+    border-radius: 5px;
+    padding: 10px;
+}
+#nav-style h2, #nav-style p {
+    color: rgb(229, 234, 240);
+}
+.nav-link {
+    color: rgb(169, 171, 173);
+    font-weight: 600;
+}
+.tab-content {
+    padding: 20px;
+    padding-top: 0px;
+}
+label {
+    margin-left: 15px;
+}
+button {
+    margin-left: 25px;
+}
+.style-flex {
     display: flex;
     justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-ul li {
-    margin-left: 30px;
+ .py-5 {
+     padding-top: 3px!important;
+ }
+ ul.nav-tabs {
+     border: 0px solid gold;
+ }
+ ul > li:hover {
+     background-color: rgb(169, 171, 173);
+ }
+ ul > li:active {
+    background-color: rgb(169, 171, 173);
 }
-.form-control {
-    width: 500px;
+.btn-group {
+    display: flex;
+    justify-content: center;
 }
 
-#addNewAnimals {
-    margin-left: 50px;
+p.card-text {
+    overflow: hidden;
+    max-width: 15ch !important;
 }

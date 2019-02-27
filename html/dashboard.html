@@ -10,7 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="../css/log-in.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+
 
   <title>Admin: Dashboard</title>
 </head>
@@ -20,6 +21,8 @@
 
   <div class="container">
     <div class="container-heading">
+      <div id="nav-style">
+        <div class="style-flex">
       <h2>Dashboard</h2>
       <p>As of <span id="date"></span></p>
     </div>
@@ -39,12 +42,15 @@
         <a class="nav-link" data-toggle="tab" href="#deleteAnimals">Delete Animals</a>
       </li>
     </ul>
+    <br>
+  </div>
+</div>
 
     <!-- Tab panes -->
     <!-- Get all animals -->
     <div class="tab-content">
       <div id="allAnimals" class="container tab-pane active"><br>
-        <h4>Records of All animals in the Database</h4>
+        <h4>Records of All animals in the Database</h4><br>
 
         <main role="main">
           <div class="album py-5 bg-light">
@@ -61,44 +67,53 @@
       </div>
 
       <!-- Add new animals -->
-      <div id="addNewAnimals" class="container tab-pane fade"><br>
+      <div id="addNewAnimals" class="container tab-pane fade">
         <h4 class="containerHeading">Input animal detail below</h4>
         <form id="postForm">
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="name">Animal Name
             </label> <input type="text" class="form-control" id="name" placeholder="i.e Tiger">
+            <br>
           </div>
-          <div class="form-group">
+         
+          <div class="col-sm-6">
             <label for="species">Species
             </label> <input type="text" class="form-control" id="species">
+            <br>
           </div>
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="family">Family
             </label> <input type="text" class="form-control" id="family">
+            <br>
           </div>
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="class">Class
             </label> <input type="text" class="form-control" id="class">
+            <br>
           </div>
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="external">External Link
             </label> <input type="text" class="form-control" id="external">
+            <br>
           </div>
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="image">Image Link
             </label> <input type="text" class="form-control" id="image">
+            <br>
           </div>
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="category">Does the animals lives in the sea?</label>
             <select class="form-control" id="category">
               <option>sea</option>
               <option>land</option>
             </select>
+            <br>
           </div>
 
-          <div class="form-group">
+          <div class="col-sm-6">
             <label for="info">Animal description and Info</label>
             <textarea class="form-control" id="info" rows="3"></textarea>
+            <br>
           </div>
           <button type="button" class="btn btn-primary addSubmit" id="postSubmit">Submit</button>
         </form>
