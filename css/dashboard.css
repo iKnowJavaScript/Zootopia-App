@@ -1,0 +1,14 @@
+div.container-heading {
+    display: flex;
+    justify-content: space-between;
+}
+ul li {
+    margin-left: 30px;
+}
+.form-control {
+    width: 500px;
+}
+
+#addNewAnimals {
+    margin-left: 50px;
+}
