@@ -35,27 +35,48 @@ $(function() {
 */
 
 $(document).ready(() => {
-  let $bookLists = $('#book-list');
-  let $title = $('#title');
-  let $author = $('#author');
-  let $isbn = $('#isbn');
+  let $divAppend = $('#divAppend'); //$booklist
+  let $name = $('#name'); //tittle
+  let $species = $('#species');
+  let $family = $('#family');
+  let $class = $('#class');
+  let $sea = $('#sea');
+  let $external = $('#external');
+  let $image = $('#image');
+  let $info = $('#info');
 
-  function addBook(book) {
-    $bookLists.append(`<tr>
+
+  /*
+  $bookLists.append(`<tr>
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.isbn}</td>
     <td><a href="#" data-id = ${book.id} class="btn btn-danger btn-sm delete">X</a></td>
     </tr>
+    `
+  */
+
+  function addAnimal(animal) {
+    //<small class="text-muted">9 mins</small>   and <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+    $divAppend.append(`<img class="card-img-top" src=${animal.image} alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">${animal.info}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        </div>
+      </div>
+    </div>
     `);
+    console.log(animal.image)
   }
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/bookLists',
-    success: function (bookLists) {
-      $.each(bookLists, (i, book) => {
-        addBook(book);
+    url: 'http://localhost:3000/animals',
+    success: function (animals) { //animals == booklists && book == animal
+      $.each(animals, (i, animal) => {
+        addAnimal(animal);
       })
     },
     error: function () {
@@ -63,41 +84,49 @@ $(document).ready(() => {
     }
   });
 
-  $('#add-book').click(function(e) {
+  $('#postSubmit').click(function(e) {
     e.preventDefault();
 
-    const book = {
-      title: $title.val(),
-      author: $author.val(),
-      isbn: $isbn.val()
+    const animal = {
+      name: $name.val(),
+      species: $species.val(),
+      family: $family.val(),
+      class: $class.val(),
+      sea: $sea.val(),
+      external: $external.val(),
+      image: $image.val(),
+      info: $info.val(),
     };
 
-    $('#book-form').trigger("reset");
+    $('#postSubmit').trigger("reset");
 
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/bookLists',
-      data: book,
-      success: function(newBook) {
-        addBook(newBook);
+      data: animal,
+      success: function(newAnimal) {
+        addBook(newAnimal);
       },
       error: function() {
         alert('Error saving order')
       }
     })
   })
-  $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
-    e.preventDefault();
-    let $tr = $(this).closest('tr');
 
-    $.ajax({
-      type: 'DELETE',
-      url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
-      success: function() {
-        $tr.fadeOut(300, function() {
-          $(this).remove();
-        })
-      }
-    })
-  })
-})
+
+  
+//   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
+//     e.preventDefault();
+//     let $tr = $(this).closest('tr');
+
+//     $.ajax({
+//       type: 'DELETE',
+//       url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
+//       success: function() {
+//         $tr.fadeOut(300, function() {
+//           $(this).remove();
+//         })
+//       }
+//     })
+//   })
+ })
