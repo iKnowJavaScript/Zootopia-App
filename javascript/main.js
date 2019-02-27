@@ -74,7 +74,9 @@ $(document).ready(() => {
   </div>
     `);
     //console.log(animal.image)
+  }
 
+  function addAnimalAdmin(animal) {
     $divAppendAdmin.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src=${animal.image} alt="Card image cap">
@@ -98,6 +100,7 @@ $(document).ready(() => {
     success: function (animals) { //animals == booklists && book == animal
       $.each(animals, (i, animal) => {
         addAnimal(animal);
+        addAnimalAdmin(animal);
       })
     },
     error: function () {
@@ -140,8 +143,8 @@ $(document).ready(() => {
     e.preventDefault();
     let $searchName = $('#searchName');
     $searchName = $searchName.val();
-
-    $('#searchName').trigger("reset"); 
+ 
+    $divAppend.empty();
 
   $.ajax({
     type: 'GET',
@@ -155,6 +158,64 @@ $(document).ready(() => {
       alert('error loading orders');
     }
   });
+});
+
+ //get for seaAnimals
+ $('#seaAnimal').click(function (e) {
+  e.preventDefault();
+  $divAppend.empty();
+
+$.ajax({
+  type: 'GET',
+  url: 'http://localhost:3000/animals?category=sea',
+  success: function (animals) { //animals == booklists && book == animal
+    $.each(animals, (i, animal) => {
+      addAnimal(animal);
+    })
+  },
+  error: function () {
+    alert('error loading orders');
+  }
+});
+});
+
+//get for landAnimals
+$('#landAnimal').click(function (e) {
+  e.preventDefault();
+  $divAppend.empty();
+
+$.ajax({
+  type: 'GET',
+  url: 'http://localhost:3000/animals?category=land',
+  success: function (animals) { //animals == booklists && book == animal
+    $.each(animals, (i, animal) => {
+      addAnimal(animal);
+    })
+  },
+  error: function () {
+    alert('error loading orders');
+  }
+});
+});
+
+//exploreAll
+$('#exploreAll').click(function (e) {
+  e.preventDefault();
+
+  $divAppend.empty();
+
+$.ajax({
+  type: 'GET',
+  url: 'http://localhost:3000/animals',
+  success: function (animals) { //animals == booklists && book == animal
+    $.each(animals, (i, animal) => {
+      addAnimal(animal);
+    })
+  },
+  error: function () {
+    alert('error loading orders');
+  }
+});
 });
 
 
