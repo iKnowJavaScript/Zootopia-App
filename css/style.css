@@ -1,4 +1,6 @@
-
+body {
+    background-color: #f8f9fa;
+}
 
 div.container-top{
     background: url(../img/01.jpg) no-repeat center;
@@ -63,7 +65,7 @@ div.load {
     text-align: center;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
-    background-color: white;
+    background-color: #f8f9fa;
     padding-top: 30px;
     padding-bottom: 20px;
 }
