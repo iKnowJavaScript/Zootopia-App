@@ -40,7 +40,7 @@ $(document).ready(() => {
   let $species = $('#species');
   let $family = $('#family');
   let $class = $('#class');
-  let $sea = $('#sea');
+  let $category = $('#sea');
   let $external = $('#external');
   let $image = $('#image');
   let $info = $('#info');
@@ -58,15 +58,19 @@ $(document).ready(() => {
 
   function addAnimal(animal) {
     //<small class="text-muted">9 mins</small>   and <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-    $divAppend.append(`<img class="card-img-top" src=${animal.image} alt="Card image cap">
-    <div class="card-body">
-      <p class="card-text">${animal.info}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+    $divAppend.append(`<div class="col-md-4">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" src=${animal.image} alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text">${animal.info}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
     `);
     console.log(animal.image)
   }
@@ -84,7 +88,7 @@ $(document).ready(() => {
     }
   });
 
-  $('#postSubmit').click(function(e) {
+  $('#postSubmit').click(function (e) {
     e.preventDefault();
 
     const animal = {
@@ -92,41 +96,41 @@ $(document).ready(() => {
       species: $species.val(),
       family: $family.val(),
       class: $class.val(),
-      sea: $sea.val(),
+      category: $category.val(),
       external: $external.val(),
       image: $image.val(),
-      info: $info.val(),
+      info: $info.val()
     };
 
-    $('#postSubmit').trigger("reset");
+    $('#postForm').trigger("reset");
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/bookLists',
+      url: 'http://localhost:3000/animals',
       data: animal,
-      success: function(newAnimal) {
-        addBook(newAnimal);
+      success: function (newAnimal) {
+        addAnimal(newAnimal);
       },
-      error: function() {
+      error: function () {
         alert('Error saving order')
       }
     })
   })
 
 
-  
-//   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
-//     e.preventDefault();
-//     let $tr = $(this).closest('tr');
 
-//     $.ajax({
-//       type: 'DELETE',
-//       url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
-//       success: function() {
-//         $tr.fadeOut(300, function() {
-//           $(this).remove();
-//         })
-//       }
-//     })
-//   })
- })
+    // $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
+    //   e.preventDefault();
+    //   let $tr = $(this).closest('tr');
+
+    //   $.ajax({
+    //     type: 'DELETE',
+    //     url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
+    //     success: function() {
+    //       $tr.fadeOut(300, function() {
+    //         $(this).remove();
+    //       })
+    //     }
+    //   })
+    // })
+})

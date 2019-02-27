@@ -1,20 +1,50 @@
 {
     "animals": [
-      {
-        "id": 1,
-        "name": "Camel",
-        "species": "Camelidae Diomedarius",
-        "family": "Camelius",
-        "class": "Mammalia",
-        "sea": "False",
-        "external-link": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=33&cad=rja&uact=8&ved=2ahUKEwjHxMvo4NvgAhVStHEKHXrMBwoQmhMwIHoECAUQAg&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCamel&usg=AOvVaw0NjLn-kyh76RRgv2zYTDXG",
-        "image": "https://rangerrick.org/wp-content/uploads/2018/07/Camels-by-Roland-Seitre-Minden-1156x650.jpg",
-        "info": "A camel is an even-toed ungulate in the genus Camelus that bears distinctive fatty deposits known as 'humps' on its back. Camels have long been domesticated and, as livestock, they provide food and textiles"
-      }
+        {
+            "id": 1,
+            "name": "Camel",
+            "species": "Camelidae Diomedarius",
+            "family": "Camelius",
+            "class": "Mammalia",
+            "category": "land",
+            "external-link": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=33&cad=rja&uact=8&ved=2ahUKEwjHxMvo4NvgAhVStHEKHXrMBwoQmhMwIHoECAUQAg&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCamel&usg=AOvVaw0NjLn-kyh76RRgv2zYTDXG",
+            "image": "https://rangerrick.org/wp-content/uploads/2018/07/Camels-by-Roland-Seitre-Minden-1156x650.jpg",
+            "info": "A camel is an even-toed ungulate in the genus Camelus that bears distinctive fatty deposits known as 'humps' on its back. Camels have long been domesticated and, as livestock, they provide food and textiles"
+        },
+        {
+            "name": "Tiger",
+            "species": "Panthera",
+            "family": "Felidae",
+            "class": "Mammalia",
+            "category": "land",
+            "external": "https://en.wikipedia.org/wiki/Tiger",
+            "image": "https://images.theconversation.com/files/242298/original/file-20181025-71032-1hmrk2l.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip",
+            "info": "The tiger is the largest cat species, most recognizable for its pattern of dark vertical stripes on reddish-orange fur with a lighter underside. The species is classified in the genus Panthera with the lion, jaguar, leopard, and snow leopard.",
+            "id": 2
+        },
+        {
+            "name": "Tiger",
+            "species": "Panthera",
+            "family": "Felidae",
+            "class": "Mammalia",
+            "category": "land",
+            "external": "https://en.wikipedia.org/wiki/Tiger",
+            "image": "https://images.theconversation.com/files/242298/original/file-20181025-71032-1hmrk2l.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip",
+            "info": "The tiger is the largest cat species, most recognizable for its pattern of dark vertical stripes on reddish-orange fur with a lighter underside. The species is classified in the genus Panthera with the lion, jaguar, leopard, and snow leopard.",
+            "id": 3
+        }
     ],
     "admin": {
         "id": 1,
         "username": "admin",
         "password": "admin"
-    }
-  }
+    },
+    "category": [
+        {
+            "sea": "sea"
+        },
+        {
+            "land": "land"
+        }
+    ]
+}
