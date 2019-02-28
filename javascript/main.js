@@ -124,7 +124,7 @@ $(document).ready(() => {
       info: $info.val()
     };
 
-    $('#postForm').trigger("reset"); 
+    $('#postForm').trigger("reset");
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/animals',
@@ -143,80 +143,80 @@ $(document).ready(() => {
     e.preventDefault();
     let $searchName = $('#searchName');
     $searchName = $searchName.val();
- 
+
     $divAppend.empty();
 
-  $.ajax({
-    type: 'GET',
-    url: 'http://localhost:3000/animals?q=' + $searchName,
-    success: function (animals) { //animals == booklists && book == animal
-      $.each(animals, (i, animal) => {
-        addAnimal(animal);
-      })
-    },
-    error: function () {
-      alert('error loading orders');
-    }
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/animals?q=' + $searchName,
+      success: function (animals) { //animals == booklists && book == animal
+        $.each(animals, (i, animal) => {
+          addAnimal(animal);
+        })
+      },
+      error: function () {
+        alert('error loading orders');
+      }
+    });
   });
-});
 
- //get for seaAnimals
- $('#seaAnimal').click(function (e) {
-  e.preventDefault();
-  $divAppend.empty();
+  //get for seaAnimals
+  $('#seaAnimal').click(function (e) {
+    e.preventDefault();
+    $divAppend.empty();
 
-$.ajax({
-  type: 'GET',
-  url: 'http://localhost:3000/animals?category=sea',
-  success: function (animals) { //animals == booklists && book == animal
-    $.each(animals, (i, animal) => {
-      addAnimal(animal);
-    })
-  },
-  error: function () {
-    alert('error loading orders');
-  }
-});
-});
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/animals?category=sea',
+      success: function (animals) { //animals == booklists && book == animal
+        $.each(animals, (i, animal) => {
+          addAnimal(animal);
+        })
+      },
+      error: function () {
+        alert('error loading orders');
+      }
+    });
+  });
 
-//get for landAnimals
-$('#landAnimal').click(function (e) {
-  e.preventDefault();
-  $divAppend.empty();
+  //get for landAnimals
+  $('#landAnimal').click(function (e) {
+    e.preventDefault();
+    $divAppend.empty();
 
-$.ajax({
-  type: 'GET',
-  url: 'http://localhost:3000/animals?category=land',
-  success: function (animals) { //animals == booklists && book == animal
-    $.each(animals, (i, animal) => {
-      addAnimal(animal);
-    })
-  },
-  error: function () {
-    alert('error loading orders');
-  }
-});
-});
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/animals?category=land',
+      success: function (animals) { //animals == booklists && book == animal
+        $.each(animals, (i, animal) => {
+          addAnimal(animal);
+        })
+      },
+      error: function () {
+        alert('error loading orders');
+      }
+    });
+  });
 
-//exploreAll
-$('#exploreAll').click(function (e) {
-  e.preventDefault();
+  //exploreAll
+  $('#exploreAll').click(function (e) {
+    e.preventDefault();
 
-  $divAppend.empty();
+    $divAppend.empty();
 
-$.ajax({
-  type: 'GET',
-  url: 'http://localhost:3000/animals',
-  success: function (animals) { //animals == booklists && book == animal
-    $.each(animals, (i, animal) => {
-      addAnimal(animal);
-    })
-  },
-  error: function () {
-    alert('error loading orders');
-  }
-});
-});
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/animals',
+      success: function (animals) { //animals == booklists && book == animal
+        $.each(animals, (i, animal) => {
+          addAnimal(animal);
+        })
+      },
+      error: function () {
+        alert('error loading orders');
+      }
+    });
+  });
 
 
   //   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
