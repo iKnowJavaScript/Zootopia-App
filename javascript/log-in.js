@@ -21,7 +21,7 @@ $(document).ready(() => {
           success: function (admin) { //animals == booklists && book == animal
             if(admin.password == password && admin.username == username) {
                 console.log('Good to go')
-                window.location.replace('http://127.0.0.1:5500/Zootopia-App/html/dashboard.html#addNewAnimals')
+                window.location.replace('http://127.0.0.1:5500/html/dashboard.html#addNewAnimals')
             }else{
                 console.log('check matching')
             }

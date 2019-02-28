@@ -21,28 +21,27 @@
 
   <div class="container">
     <div class="container-heading">
+
+      <div class="style-flex">
+        <h2>Dashboard</h2>
+        <p>As of <span id="date"></span></p>
+      </div>
+      <br>
+      <!-- Nav tabs -->
       <div id="nav-style">
-        <div class="style-flex">
-      <h2>Dashboard</h2>
-      <p>As of <span id="date"></span></p>
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#allAnimals">Manage All Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#addNewAnimals">Add New Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#editAnimals">Delete and Edit Animals Details</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <br>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#allAnimals">Manage All Animals</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#addNewAnimals">Add New Animals</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#editAnimals">Delete and Edit Animals Details</a>
-      </li>
-      
-    </ul>
-    <br>
-  </div>
-</div>
 
     <!-- Tab panes -->
     <!-- Get all animals -->
@@ -73,7 +72,7 @@
             </label> <input type="text" class="form-control" id="name" placeholder="i.e Tiger">
             <br>
           </div>
-         
+
           <div class="col-sm-6">
             <label for="species">Species
             </label> <input type="text" class="form-control" id="species">
@@ -119,117 +118,81 @@
 
       <!-- Delete and Edit Animals -->
       <div id="editAnimals" class="container tab-pane fade"><br>
-        <h4>Input animal detail below</h4>
+        <h4 id="addMargin">Input animal detail below</h4>
 
         <form>
           <div class="col-sm-6">
             <label for="name">Animal Name
             </label> <input type="text" class="form-control" id="editSearch" placeholder="i.e Tiger">
           </div>
-          <br>  
+          <br>
           <button type="button" id="editTab" class="btn btn-primary editSubmit">Submit</button>
         </form>
 
         <main role="main">
-            <div class="album py-5 bg-light">
-              <div class="container">
-        
-                <div class="row" id="divAppendEdit">
-        
-                  </div>
+          <div class="album py-5 bg-light">
+            <div class="container">
+
+              <div class="row" id="divAppendEdit">
+
               </div>
             </div>
-        
-          </main>
+          </div>
+
+        </main>
       </div>
 
       <!-- Delete animals -->
-      
+
     </div>
   </div>
 
   <!--Modal here-->
-<div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Product details</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form method="post">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Product details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Name of product" />
+              <label for="formGroupExampleInput">Price</label>
+              <input type="text" class="form-control" id="price" placeholder="Price of product $34" />
+              <label for="formGroupExampleInput">Product description</label>
+              <input type="text" class="form-control" id="describe" placeholder="A little discription of the product" />
+              <label for="formGroupExampleInput">Image for product</label>
+              <input type="text" class="form-control" id="imgLnk"
+                placeholder="Please input an online resource of product image here" />
               <div class="form-group">
-                <label for="formGroupExampleInput">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Name of product"
-                />
-                <label for="formGroupExampleInput">Price</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="price"
-                  placeholder="Price of product $34"
-                />
-                <label for="formGroupExampleInput">Product description</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="describe"
-                  placeholder="A little discription of the product"
-                />
-                <label for="formGroupExampleInput">Image for product</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="imgLnk"
-                  placeholder="Please input an online resource of product image here"
-                />
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1"
-                    >Product category</label
-                  >
-                  <select class="form-control" id="catId">
-                    <option>computing</option>
-                    <option>grocery</option>
-                    <option>fashion</option>
-                    <option>electronics</option>
-                  </select>
-                </div>
+                <label for="exampleFormControlSelect1">Product category</label>
+                <select class="form-control" id="catId">
+                  <option>computing</option>
+                  <option>grocery</option>
+                  <option>fashion</option>
+                  <option>electronics</option>
+                </select>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
-              Save product
-            </button>
-          </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Save product
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
 
   <script src="../javascript/jquery.js"></script>

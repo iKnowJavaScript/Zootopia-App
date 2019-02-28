@@ -5,8 +5,16 @@ body {
 #nav-style {
     background-color: rgb(64, 97, 141);
     border-radius: 5px;
-    padding: 10px;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    padding-left: 0;
 }
+.nav-item {
+    padding-top: 20px;
+    line-height: 3;
+    border: 0px solid white!important;
+}
+
 #nav-style h2, #nav-style p {
     color: rgb(229, 234, 240);
 }
@@ -18,9 +26,7 @@ body {
     padding: 20px;
     padding-top: 0px;
 }
-label {
-    margin-left: 15px;
-}
+
 button {
     margin-left: 25px;
 }
@@ -37,11 +43,9 @@ button {
      border: 0px solid gold;
  }
  ul > li:hover {
-     background-color: rgb(169, 171, 173);
+     background-color: #f8f9fa;
  }
- ul > li:active {
-    background-color: rgb(169, 171, 173);
-}
+
 .btn-group {
     display: flex;
     justify-content: center;
@@ -57,4 +61,12 @@ button {
 
 .edit .noedit{
     display: none!important;
+}
+
+
+.containerHeading {
+    margin-bottom: 20px;
+}
+#addMargin {
+    margin-bottom: 10px;
 }

@@ -59,7 +59,7 @@ $(document).ready(function() {
       });
 
       //delete animal
-          $divAppendEdit.delegate('.remove','click', function(e) { //.delete has not been added to the page yet hence 
+      $divAppendEdit.delegate('.remove','click', function(e) { //.delete has not been added to the page yet hence 
             e.preventDefault();
             let $div = $(this).closest('div');
       
@@ -72,7 +72,7 @@ $(document).ready(function() {
                 })
               }
             })
-          })
+      })
 
           //edit animal
           $divAppendEdit.delegate('.editButton','click', function(e) { //.delete has not been added to the page yet hence 
