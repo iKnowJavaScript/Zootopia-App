@@ -50,3 +50,11 @@ button {
 .edit {
     display: none!important;
 }
+
+.edit  .edit{
+    display: initial!important;
+}
+
+.edit .noedit{
+    display: none!important;
+}

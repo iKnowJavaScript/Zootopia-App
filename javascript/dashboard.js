@@ -16,11 +16,11 @@ $(document).ready(function() {
     let $divAppendEdit = $('#divAppendEdit');
 
     function addAnimalAdmin(animal) {
-        $divAppendEdit.append(`<div class="col-md-4">
+        $divAppendEdit.append(`<div class="col-md-4" data-id=${animal.id}>
         <div class="card mb-4 box-shadow">
           <img class="card-img-top noedit" src=${animal.image} alt="Card image cap">
           <div class="card-body">
-            <p class="card-text noedit">${animal.info}</p>
+            <p class="card-text noedit info">${animal.info}</p>
             <input class="edit info" />
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
@@ -73,6 +73,43 @@ $(document).ready(function() {
               }
             })
           })
+
+          //edit animal
+          $divAppendEdit.delegate('.editButton','click', function(e) { //.delete has not been added to the page yet hence 
+            e.preventDefault();
+            let $div = $(this).closest('div');
+            $div.find('input.info').val($div.find('p.info').html() ) //same for oothers
+            $div.addClass('edit');
+          })
+
+          $divAppendEdit.delegate('.cancel','click', function(e) { 
+             e.preventDefault();
+            $(this).closest('div').removeClass('edit');
+          })
+
+          $divAppendEdit.delegate('.cancel','click', function(e) { 
+            e.preventDefault();
+            let $div = $(this).closest('div');
+            let animal = {
+                info: $div.find('input.info').val()
+            };
+
+           $.ajax({
+            type: 'PUT',
+            url: 'http://localhost:3000/animals/' + $div.attr('data-id'),
+            data: animal,
+            success: function(newAnimal) {
+                $div.find('p.info').html(animal.info); //same for others
+
+                $div.removeClass('edit');
+            },
+            error: function(){
+                alert('Error updating order')
+            }
+          })
+         })
+
+          
 })
 
 

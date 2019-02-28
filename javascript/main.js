@@ -57,16 +57,29 @@ $(document).ready(() => {
     `
   */
 
+  //limit character lenght
+  function limitChar(string) {
+    if (string.length > 150) {
+      return string.substring(0, 150) + '.....';
+    }
+
+  }
+
   function addAnimal(animal) {
+
     //<small class="text-muted">9 mins</small>   and <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
     $divAppend.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src=${animal.image} alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">${animal.info}</p>
+        <p class="card-text data-name">${animal.name}</p>
+        <p class="card-text">Info: ${limitChar(animal.info)}</p>
+        <p class="card-text">Species: ${animal.species}</p>
+        <p class="card-text">Class: ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary external"><a href=${animal.external}>Link</a></button>
           </div>
         </div>
       </div>
