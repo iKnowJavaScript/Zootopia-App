@@ -11,4 +11,46 @@ $(document).ready(function() {
     const newDate = new Date();
     newDate.setDate(newDate.getDate());    
     $('#date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+
+    let $divAppendEdit = $('#divAppendEdit');
+
+    function addAnimalAdmin(animal) {
+        $divAppendEdit.append(`<div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src=${animal.image} alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">${animal.info}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        `);
+      }
+    //to search for an animal
+    $('#editTab').click(function (e) {
+        e.preventDefault();
+        let $editSearch = $('#editSearch');
+        $editSearch = $editSearch.val();
+    
+        $divAppendEdit.empty();
+    
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:3000/animals?q=' + $editSearch,
+          success: function (animals) { //animals == booklists && book == animal
+            $.each(animals, (i, animal) => {
+              addAnimalAdmin(animal);
+            })
+          },
+          error: function () {
+            alert('error loading orders');
+          }
+        });
+      });
 })
