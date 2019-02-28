@@ -18,14 +18,18 @@ $(document).ready(function() {
     function addAnimalAdmin(animal) {
         $divAppendEdit.append(`<div class="col-md-4">
         <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src=${animal.image} alt="Card image cap">
+          <img class="card-img-top noedit" src=${animal.image} alt="Card image cap">
           <div class="card-body">
-            <p class="card-text">${animal.info}</p>
+            <p class="card-text noedit">${animal.info}</p>
+            <input class="edit info" />
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
-                <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
-              </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
+                <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove noedit">Delete</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary edit save">Save</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary edit cancel"Cancel</button>
+                
+                </div>
             </div>
           </div>
         </div>

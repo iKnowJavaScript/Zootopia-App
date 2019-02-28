@@ -47,3 +47,6 @@ button {
     justify-content: center;
 }
 
+.edit {
+    display: none!important;
+}
