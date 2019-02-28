@@ -46,7 +46,7 @@ $(document).ready(function () {
       </div>
     </div>
   </div>
-    `);     
+    `);
   }
 
   //To search for a specific animal with name
@@ -60,7 +60,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?q=' + $editSearch,
-      success: function (animals) { 
+      success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimalAdmin(animal);
         })
@@ -88,7 +88,7 @@ $(document).ready(function () {
   })
 
   //Edit animal detail
-  $('#saveEdit').on("click",function (e) {
+  $('#saveEdit').on("click", function (e) {
     e.preventDefault();
 
     const animal = {
@@ -101,7 +101,7 @@ $(document).ready(function () {
       image: $image.val(),
       info: $info.val()
     };
-    
+
     //$('#saveEdit').trigger("reset");
     $.ajax({
       type: 'PUT',

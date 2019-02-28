@@ -39,7 +39,7 @@ $(document).ready(() => {
 
   let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
 
-  let $name = $('#name'); 
+  let $name = $('#name');
   let $species = $('#species');
   let $family = $('#family');
   let $class = $('#class');
@@ -104,7 +104,7 @@ $(document).ready(() => {
   $.ajax({
     type: 'GET',
     url: 'http://localhost:3000/animals',
-    success: function (animals) { 
+    success: function (animals) {
       $.each(animals, (i, animal) => {
         addAnimal(animal);
         addAnimalAdmin(animal);
@@ -156,7 +156,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?q=' + $searchName,
-      success: function (animals) { 
+      success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -175,7 +175,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?category=sea',
-      success: function (animals) { 
+      success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -194,7 +194,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?category=land',
-      success: function (animals) { 
+      success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -214,7 +214,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals',
-      success: function (animals) { 
+      success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -223,5 +223,5 @@ $(document).ready(() => {
         alert('error loading orders');
       }
     });
-  });  
+  });
 })
