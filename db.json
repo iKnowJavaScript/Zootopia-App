@@ -1,17 +1,6 @@
 {
   "animals": [
     {
-      "name": "Camelo=Camelo",
-      "species": "bnvkbjvdlkhsolvd;bnbvfklg",
-      "family": "vnjkvkbnv. d;fvd.fk/njl",
-      "class": "hdjfgydnbk vj.nd fvd. f",
-      "category": "sea",
-      "external": "b kidnj hsklvndf;jndf",
-      "image": " hkbdjbk lugbvflfknj",
-      "info": "biuvhdfvkdnfvh dbhvvvvvnedguviobffvudfyuifgdkgdbvd",
-      "id": 1
-    },
-    {
       "name": "Tiger",
       "species": "Panthera",
       "family": "Felidae",
@@ -32,6 +21,16 @@
       "image": "http://www.animalsworlds.com/images/shark.jpg",
       "info": "Sharks are a group of elasmobranch fish characterized by a cartilaginous skeleton, five to seven gill slits on the sides of the head, and pectoral fins that are not fused to the head. Modern sharks are classified within the clade Selachimorpha (or Selachii) and are the sister group to the rays.",
       "id": 4
+    },
+    {
+      "name": "Camel",
+      "species": "Camelus bactrianus, Camelus dromedarius",
+      "family": "Camelidae",
+      "class": "Mammalia",
+      "external": "https://en.wikipedia.org/wiki/Camel",
+      "image": "http://milkgenomics.org/wp-content/uploads/2018/04/bigstock-Camel-In-Liwa-Desert-221803171.jpg",
+      "info": "A camel is an even-toed ungulate in the genus Camelus that bears distinctive fatty deposits known as 'humps' on its back. Camels have long been domesticated and, as livestock, they provide food (milk and meat) and textiles (fiber and felt from hair). As working animals, camels—which are uniquely suited to their desert habitats—are a vital means of transport for passengers and cargo.",
+      "id": 5
     }
   ],
   "admin": {
