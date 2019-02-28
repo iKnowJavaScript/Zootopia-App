@@ -24,8 +24,8 @@ $(document).ready(function() {
             <input class="edit info" />
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
-                <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove noedit">Delete</button>
+                <button type="button" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary remove noedit">Delete</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary edit save">Save</button>
                 <button type="button" class="btn btn-sm btn-outline-secondary edit cancel"Cancel</button>
                 
@@ -74,41 +74,55 @@ $(document).ready(function() {
             })
       })
 
-          //edit animal
-          $divAppendEdit.delegate('.editButton','click', function(e) { //.delete has not been added to the page yet hence 
-            e.preventDefault();
-            let $div = $(this).closest('div');
-            $div.find('input.info').val($div.find('p.info').html() ) //same for oothers
-            $div.addClass('edit');
-          })
+        //   //edit animal
+        //   $divAppendEdit.delegate('.editButton','click', function(e) { //.delete has not been added to the page yet hence 
+        //     e.preventDefault();
+        //     let $div = $(this).closest('div');
+        //     $div.find('input.info').val($div.find('p.info').html() ) //same for oothers
+        //     $div.addClass('edit');
+        //   })
 
-          $divAppendEdit.delegate('.cancel','click', function(e) { 
-             e.preventDefault();
-            $(this).closest('div').removeClass('edit');
-          })
+        //   $divAppendEdit.delegate('.cancel','click', function(e) { 
+        //      e.preventDefault();
+        //     $(this).closest('div').removeClass('edit');
+        //   })
 
-          $divAppendEdit.delegate('.cancel','click', function(e) { 
-            e.preventDefault();
-            let $div = $(this).closest('div');
-            let animal = {
-                info: $div.find('input.info').val()
-            };
+        //   $divAppendEdit.delegate('.cancel','click', function(e) { 
+        //     e.preventDefault();
+        //     let $div = $(this).closest('div');
+        //     let animal = {
+        //         info: $div.find('input.info').val()
+        //     };
 
-           $.ajax({
-            type: 'PUT',
-            url: 'http://localhost:3000/animals/' + $div.attr('data-id'),
-            data: animal,
-            success: function(newAnimal) {
-                $div.find('p.info').html(animal.info); //same for others
+        //    $.ajax({
+        //     type: 'PUT',
+        //     url: 'http://localhost:3000/animals/' + $div.attr('data-id'),
+        //     data: animal,
+        //     success: function(newAnimal) {
+        //         $div.find('p.info').html(animal.info); //same for others
 
-                $div.removeClass('edit');
-            },
-            error: function(){
-                alert('Error updating order')
+        //         $div.removeClass('edit');
+        //     },
+        //     error: function(){
+        //         alert('Error updating order')
+        //     }
+        //   })
+        //  })
+
+        $divAppendEdit.delegate('.remove','click', function(e) { //.delete has not been added to the page yet hence 
+          e.preventDefault();
+          let $div = $(this).closest('div');
+    
+          $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+            success: function() {
+              $div.fadeOut(300, function() {
+               $(this).remove();
+              })
             }
           })
-         })
-
+    })
           
 })
 

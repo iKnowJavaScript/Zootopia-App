@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
 body {
    background-color: #f8f9fa; 
@@ -35,20 +37,36 @@ button {
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+    font-family: 'Cinzel', serif;
+    align-items: center;
+}
+.heading-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-right: 40px;  
+    margin-bottom: 15px; 
+    align-items: center;
 }
  .py-5 {
      padding-top: 3px!important;
  }
  ul.nav-tabs {
      border: 0px solid gold;
+     display: flex;
+     justify-content: center;
  }
  ul > li:hover {
-     background-color: #f8f9fa;
+     background-color: none;
+ }
+ ul > li {
+     padding-left: 60px;
  }
 
 .btn-group {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .edit {
@@ -69,4 +87,35 @@ button {
 }
 #addMargin {
     margin-bottom: 10px;
+}
+.rgba-white-light {
+   margin-left: auto!important;
+   margin-right: auto!important;
+   border-radius: 50%;
+}
+#adminImage{
+    width: 5rem;
+    border-radius: 50%;
+    margin-top: 5px!important;
+}
+.card-text {
+    font-family: 'Inconsolata', monospace;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #f8f9fa;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #f8f9fa;
+    background-color: #f8f9fa
+}
+.data-name {
+    font-weight: 600;
+    font-size: 30px;
 }

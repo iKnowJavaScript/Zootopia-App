@@ -23,10 +23,16 @@
     <div class="container-heading">
 
       <div class="style-flex">
+        <h1 class="top-heading">ZOOTOPIA</h1>
         <h2>Dashboard</h2>
-        <p>As of <span id="date"></span></p>
+        <p><img id="adminImage" src="../img/admin.png" alt="Admin Image"> </p>
       </div>
+      <hr class="rgba-white-light" style="margin: 0 15%;">
       <br>
+      <div class="heading-2">
+      <h3>Overview</h3>
+      <p>As of <span id="date"></span></p>
+    </div>
       <!-- Nav tabs -->
       <div id="nav-style">
         <ul class="nav nav-tabs" role="tablist">
@@ -159,34 +165,61 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="post">
-            <div class="form-group">
-              <label for="formGroupExampleInput">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name of product" />
-              <label for="formGroupExampleInput">Price</label>
-              <input type="text" class="form-control" id="price" placeholder="Price of product $34" />
-              <label for="formGroupExampleInput">Product description</label>
-              <input type="text" class="form-control" id="describe" placeholder="A little discription of the product" />
-              <label for="formGroupExampleInput">Image for product</label>
-              <input type="text" class="form-control" id="imgLnk"
-                placeholder="Please input an online resource of product image here" />
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Product category</label>
-                <select class="form-control" id="catId">
-                  <option>computing</option>
-                  <option>grocery</option>
-                  <option>fashion</option>
-                  <option>electronics</option>
-                </select>
+            <h4 class="containerHeading">Input animal detail below</h4>
+            <form id="postForm">
+              <div class="col-sm-8">
+                <label for="name">Animal Name
+                </label> <input type="text" class="form-control" id="name" placeholder="i.e Tiger">
+                <br>
               </div>
-            </div>
-          </form>
-        </div>
+    
+              <div class="col-sm-8">
+                <label for="species">Species
+                </label> <input type="text" class="form-control" id="species">
+                <br>
+              </div>
+              <div class="col-sm-8">
+                <label for="family">Family
+                </label> <input type="text" class="form-control" id="family">
+                <br>
+              </div>
+              <div class="col-sm-8">
+                <label for="class">Class
+                </label> <input type="text" class="form-control" id="class">
+                <br>
+              </div>
+              <div class="col-sm-8">
+                <label for="external">External Link
+                </label> <input type="text" class="form-control" id="external">
+                <br>
+              </div>
+              <div class="col-sm-8">
+                <label for="image">Image Link
+                </label> <input type="text" class="form-control" id="image">
+                <br>
+              </div>
+              <div class="col-sm-8">
+                <label for="category">Does the animals lives in the sea?</label>
+                <select class="form-control" id="category">
+                  <option>sea</option>
+                  <option>land</option>
+                </select>
+                <br>
+              </div>
+    
+              <div class="col-sm-8">
+                <label for="info">Animal description and Info</label>
+                <textarea class="form-control" id="info" rows="3"></textarea>
+                <br>
+              </div>
+              <button type="button" class="btn btn-primary addSubmit" id="postSubmit">Submit</button>
+            </form>
+          </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
+          <button type="button" id="saveEdit" class="btn btn-primary" data-dismiss="modal">
             Save product
           </button>
         </div>

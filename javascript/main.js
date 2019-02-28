@@ -73,9 +73,9 @@ $(document).ready(() => {
       <img class="card-img-top" src=${animal.image} alt="Card image cap">
       <div class="card-body">
         <p class="card-text data-name">${animal.name}</p>
-        <p class="card-text">Info: ${limitChar(animal.info)}</p>
-        <p class="card-text">Species: ${animal.species}</p>
-        <p class="card-text">Class: ${animal.class}</p>
+        <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
+        <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+        <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -94,7 +94,10 @@ $(document).ready(() => {
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src=${animal.image} alt="Card image cap">
       <div class="card-body">
-        <p class="card-text">${animal.info}</p>
+      <p class="card-text data-name">${animal.name}</p>
+      <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
+      <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+      <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
@@ -246,4 +249,34 @@ $(document).ready(() => {
   //       }
   //     })
   //   })
+
+  //edit method
+
+  $('#saveEdit').on("click",function (e) {
+    e.preventDefault();
+
+    const animal = {
+      name: $name.val(),
+      species: $species.val(),
+      family: $family.val(),
+      class: $class.val(),
+      category: $category.val(),
+      external: $external.val(),
+      image: $image.val(),
+      info: $info.val()
+    };
+    console.log(animal)
+
+    //$('#saveEdit').trigger("reset");
+    $.ajax({
+      type: 'PUT',
+      url: 'http://localhost:3000/animals' + $("#editButton").val(),
+      data: animal,
+      success: function () {
+      },
+      error: function () {
+        alert('Error saving order')
+      }
+    })
+  })
 })
