@@ -35,9 +35,11 @@ $(function() {
 */
 
 $(document).ready(() => {
-  let $divAppend = $('#divAppend'); //$booklist
-  let $divAppendAdmin = $('#divAppendAdmin');
-  let $name = $('#name'); //tittle
+  let $divAppend = $('#divAppend');// for index GET
+
+  let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
+
+  let $name = $('#name'); 
   let $species = $('#species');
   let $family = $('#family');
   let $class = $('#class');
@@ -47,15 +49,6 @@ $(document).ready(() => {
   let $info = $('#info');
 
 
-  /*
-  $bookLists.append(`<tr>
-    <td>${book.title}</td>
-    <td>${book.author}</td>
-    <td>${book.isbn}</td>
-    <td><a href="#" data-id = ${book.id} class="btn btn-danger btn-sm delete">X</a></td>
-    </tr>
-    `
-  */
 
   //limit character lenght
   function limitChar(string) {
@@ -65,8 +58,6 @@ $(document).ready(() => {
   }
 
   function addAnimal(animal) {
-
-    //<small class="text-muted">9 mins</small>   and <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
     $divAppend.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src=${animal.image} alt="Card image cap">
@@ -85,7 +76,6 @@ $(document).ready(() => {
     </div>
   </div>
     `);
-    //console.log(animal.image)
   }
 
   function addAnimalAdmin(animal) {
@@ -110,10 +100,11 @@ $(document).ready(() => {
     `);
   }
 
+  //Get all animals to index and admin dashboard
   $.ajax({
     type: 'GET',
     url: 'http://localhost:3000/animals',
-    success: function (animals) { //animals == booklists && book == animal
+    success: function (animals) { 
       $.each(animals, (i, animal) => {
         addAnimal(animal);
         addAnimalAdmin(animal);
@@ -125,7 +116,7 @@ $(document).ready(() => {
   });
 
 
-
+  //POT new animal to Database
   $('#postSubmit').click(function (e) {
     e.preventDefault();
 
@@ -165,7 +156,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?q=' + $searchName,
-      success: function (animals) { //animals == booklists && book == animal
+      success: function (animals) { 
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -203,7 +194,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?category=land',
-      success: function (animals) { //animals == booklists && book == animal
+      success: function (animals) { 
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -214,7 +205,7 @@ $(document).ready(() => {
     });
   });
 
-  //exploreAll
+  //GET for exploreAll
   $('#exploreAll').click(function (e) {
     e.preventDefault();
 
@@ -223,7 +214,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals',
-      success: function (animals) { //animals == booklists && book == animal
+      success: function (animals) { 
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -232,25 +223,5 @@ $(document).ready(() => {
         alert('error loading orders');
       }
     });
-  });
-
-
-  //   $bookLists.delegate('.delete','click', function(e) { //.delete has not been added to the page yet hence 
-  //     e.preventDefault();
-  //     let $tr = $(this).closest('tr');
-
-  //     $.ajax({
-  //       type: 'DELETE',
-  //       url: 'http://localhost:3000/bookLists/' + $(this).attr('data-id'),
-  //       success: function() {
-  //         $tr.fadeOut(300, function() {
-  //           $(this).remove();
-  //         })
-  //       }
-  //     })
-  //   })
-
-  //edit method
-
-  
+  });  
 })
