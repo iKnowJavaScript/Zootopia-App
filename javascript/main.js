@@ -99,8 +99,9 @@ $(document).ready(() => {
       <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+          <input type="text" id="animalId" value="${animal.id}" style="display:none;">
+          <button type="button" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
+          <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
           </div>
         </div>
       </div>
@@ -183,7 +184,7 @@ $(document).ready(() => {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/animals?category=sea',
-      success: function (animals) { //animals == booklists && book == animal
+      success: function (animals) { 
         $.each(animals, (i, animal) => {
           addAnimal(animal);
         })
@@ -251,31 +252,5 @@ $(document).ready(() => {
 
   //edit method
 
-  $('#saveEdit').on("click",function (e) {
-    e.preventDefault();
-
-    const animal = {
-      name: $name.val(),
-      species: $species.val(),
-      family: $family.val(),
-      class: $class.val(),
-      category: $category.val(),
-      external: $external.val(),
-      image: $image.val(),
-      info: $info.val()
-    };
-    console.log(animal)
-
-    //$('#saveEdit').trigger("reset");
-    $.ajax({
-      type: 'PUT',
-      url: 'http://localhost:3000/animals' + $("#editButton").val(),
-      data: animal,
-      success: function () {
-      },
-      error: function () {
-        alert('Error saving order')
-      }
-    })
-  })
+  
 })

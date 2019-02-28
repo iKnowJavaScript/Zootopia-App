@@ -14,8 +14,18 @@ $(document).ready(function () {
     }
   }
 
-  //
+  //declaring variable to be used later
   let $divAppendEdit = $('#divAppendEdit');
+
+  let $name = $('#putName'); //tittle
+  let $species = $('#putSpecies');
+  let $family = $('#putFamily');
+  let $class = $('#putClass');
+  let $category = $('#putCategory');
+  let $external = $('#putExternal');
+  let $image = $('#putImage');
+  let $info = $('#putInfo');
+
 
   function addAnimalAdmin(animal) {
     $divAppendEdit.append(`<div class="col-md-4">
@@ -28,6 +38,7 @@ $(document).ready(function () {
       <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
+          <input type="text" id="animalId" value="${animal.id}" style="display:none;">
           <button type="button" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
           <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
           </div>
@@ -76,39 +87,31 @@ $(document).ready(function () {
     })
   })
 
-  //   //edit animal
-  //   $divAppendEdit.delegate('.editButton','click', function(e) { //.delete has not been added to the page yet hence 
-  //     e.preventDefault();
-  //     let $div = $(this).closest('div');
-  //     $div.find('input.info').val($div.find('p.info').html() ) //same for oothers
-  //     $div.addClass('edit');
-  //   })
+  //Edit animal detail
+  $('#saveEdit').on("click",function (e) {
+    e.preventDefault();
 
-  //   $divAppendEdit.delegate('.cancel','click', function(e) { 
-  //      e.preventDefault();
-  //     $(this).closest('div').removeClass('edit');
-  //   })
-
-  //   $divAppendEdit.delegate('.cancel','click', function(e) { 
-  //     e.preventDefault();
-  //     let $div = $(this).closest('div');
-  //     let animal = {
-  //         info: $div.find('input.info').val()
-  //     };
-
-  //    $.ajax({
-  //     type: 'PUT',
-  //     url: 'http://localhost:3000/animals/' + $div.attr('data-id'),
-  //     data: animal,
-  //     success: function(newAnimal) {
-  //         $div.find('p.info').html(animal.info); //same for others
-
-  //         $div.removeClass('edit');
-  //     },
-  //     error: function(){
-  //         alert('Error updating order')
-  //     }
-  //   })
-  //  })
-
+    const animal = {
+      name: $name.val(),
+      species: $species.val(),
+      family: $family.val(),
+      class: $class.val(),
+      category: $category.val(),
+      external: $external.val(),
+      image: $image.val(),
+      info: $info.val()
+    };
+    
+    //$('#saveEdit').trigger("reset");
+    $.ajax({
+      type: 'PUT',
+      url: 'http://localhost:3000/animals/' + $("#animalId").val(),
+      data: animal,
+      success: function () {
+      },
+      error: function () {
+        alert('Error saving order')
+      }
+    })
+  })
 })
