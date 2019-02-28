@@ -24,7 +24,7 @@ $(document).ready(function() {
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
               </div>
             </div>
           </div>
@@ -53,4 +53,42 @@ $(document).ready(function() {
           }
         });
       });
+
+      //delete animal
+          $divAppendEdit.delegate('.remove','click', function(e) { //.delete has not been added to the page yet hence 
+            e.preventDefault();
+            let $div = $(this).closest('div');
+      
+            $.ajax({
+              type: 'DELETE',
+              url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+              success: function() {
+                $div.fadeOut(300, function() {
+                 $(this).remove();
+                })
+              }
+            })
+          })
 })
+
+
+
+
+
+// function addAnimalAdmin(animal) {
+//     $divAppendEdit.append(`<div class="col-md-4">
+//     <div class="card mb-4 box-shadow">
+//       <img class="card-img-top" src=${animal.image} alt="Card image cap">
+//       <div class="card-body">
+//         <p class="card-text">${animal.info}</p>
+//         <div class="d-flex justify-content-between align-items-center">
+//           <div class="btn-group">
+//             <button type="button" class="btn btn-sm btn-outline-secondary">Edit   </button>
+//             <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//     `);
+//   }
