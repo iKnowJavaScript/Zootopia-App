@@ -9,6 +9,6 @@ $(document).ready(function() {
     const dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
     const newDate = new Date();
-    newDate.setDate(newDate.getDate() + 1);    
+    newDate.setDate(newDate.getDate());    
     $('#date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
 })
