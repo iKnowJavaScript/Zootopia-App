@@ -35,7 +35,7 @@ $(document).ready(() => {
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" data-id=${animal.id} id="viewButton" data-toggle="modal" data-target="#exampleModal2" class="btn btn-sm btn-outline-secondary">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary external"><a href=${animal.external}>Link</a></button>
+            <a type="button" class="btn btn-sm btn-outline-secondary external" href=${animal.external}>Link</a>
           </div>
         </div>
       </div>
