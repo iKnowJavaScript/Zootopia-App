@@ -130,3 +130,8 @@ button {
     margin: 0 auto;
 }
 
+#log-out {
+    border: 0px solid white;
+    background-color: #f8f9fa; 
+    font-size: 2rem;
+}
