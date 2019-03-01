@@ -30,6 +30,9 @@ div.flex{
 
 .name, .admin {
     color: whitesmoke !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
