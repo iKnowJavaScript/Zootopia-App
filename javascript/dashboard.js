@@ -155,4 +155,13 @@ $(document).ready(function () {
       }
     })
   })
+
+  //logOut user
+  $('#log-out').click(function (e) {
+    e.preventDefault();
+    localStorage.removeItem("password");
+    localStorage.removeItem("username")
+
+  });
+
 })

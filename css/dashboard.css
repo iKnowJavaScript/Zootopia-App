@@ -124,8 +124,9 @@ button {
 #postForm label.error {
     color: red;
     font-weight: bold;
-  }
-  .main {
+}
+.main {
     max-width: 600px;
     margin: 0 auto;
-  }
+}
+
