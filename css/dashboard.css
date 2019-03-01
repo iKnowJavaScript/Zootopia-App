@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+body {
+   background-color: #f8f9fa; 
+}
+#nav-style {
+    background-color: rgb(64, 97, 141);
+    border-radius: 5px;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+.nav-item {
+    padding-top: 20px;
+    line-height: 3;
+    border: 0px solid white!important;
+}
+
+#nav-style h2, #nav-style p {
+    color: rgb(229, 234, 240);
+}
+.nav-link {
+    color: rgb(169, 171, 173);
+    font-weight: 600;
+}
+.tab-content {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+button {
+    margin-left: 25px;
+}
+.style-flex {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Cinzel', serif;
+    align-items: center;
+}
+.heading-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-right: 40px;  
+    margin-bottom: 15px; 
+    align-items: center;
+}
+ .py-5 {
+     padding-top: 3px!important;
+ }
+ ul.nav-tabs {
+     border: 0px solid gold;
+     display: flex;
+     justify-content: center;
+ }
+ ul > li:hover {
+     background-color: none;
+ }
+ ul > li {
+     padding-left: 60px;
+ }
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    display: none!important;
+}
+
+.edit  .edit{
+    display: initial!important;
+}
+
+.edit .noedit{
+    display: none!important;
+}
+
+
+.containerHeading {
+    margin-bottom: 20px;
+}
+#addMargin {
+    margin-bottom: 10px;
+}
+.rgba-white-light {
+   margin-left: auto!important;
+   margin-right: auto!important;
+   border-radius: 50%;
+}
+#adminImage{
+    width: 5rem;
+    border-radius: 50%;
+    margin-top: 5px!important;
+}
+.card-text {
+    font-family: 'Inconsolata', monospace;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #f8f9fa;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #f8f9fa;
+    background-color: #f8f9fa
+}
+.data-name {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+/* For validation */
+#postForm label.error {
+    color: red;
+    font-weight: bold;
+}
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#log-out {
+    border: 0px solid white;
+    background-color: #f8f9fa; 
+    font-size: 2rem;
+}

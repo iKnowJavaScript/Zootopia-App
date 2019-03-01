@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+
+
+  <title>Admin: Dashboard</title>
+</head>
+
+<body>
+  <br>
+
+  <div class="container">
+    <div class="container-heading">
+
+      <div class="style-flex">
+        <h1 class="top-heading">ZOOTOPIA</h1>
+        
+        <p><img id="adminImage" src="../img/admin.png" alt="Admin Image"> </p>
+        <button id="log-out"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+      <hr class="rgba-white-light" style="margin: 0 15%;">
+      <br>
+      <div class="heading-2">
+        <h3>DASHBOARD</h3>
+        <p>As of <span id="date"></span></p>
+      </div>
+      <!-- Nav tabs -->
+      <div id="nav-style">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#allAnimals">Manage All Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#addNewAnimals">Add New Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#editAnimals">Delete and Edit Animals Details</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tab panes -->
+    <!-- Get all animals -->
+    <div class="tab-content">
+      <div id="allAnimals" class="container tab-pane active"><br>
+        <h4>Records of All animals in the Database</h4><br>
+
+        <main role="main">
+          <div class="album py-5 bg-light">
+            <div class="container">
+
+              <div class="row" id="divAppendAdmin">
+
+              </div>
+            </div>
+          </div>
+
+        </main>
+
+      </div>
+
+      <!-- Add new animals -->
+      <div id="addNewAnimals" class="container tab-pane fade">
+        <div class="main">
+        <h4 class="containerHeading">Input animal detail below</h4>
+        <form id="postForm" action="#">
+          <div class="form-group">
+            <label for="name">Animal Name
+            </label> <input type="text" name="name" class="form-control" id="name" placeholder="i.e Tiger">
+            <br>
+          </div>
+
+          <div class="form-group">
+            <label for="species">Species
+            </label> <input type="text" name="species" class="form-control" id="species">
+            <br>
+          </div>
+          <div class="form-group">
+            <label for="family">Family
+            </label> <input type="text" name="family" class="form-control" id="family">
+            <br>
+          </div>
+          <div class="form-group">
+            <label for="class">Class
+            </label> <input type="text" name="class" class="form-control" id="class">
+            <br>
+          </div>
+          <div class="form-group">
+            <label for="external">External Link
+            </label> <input type="text" name="external" class="form-control" id="external">
+            <br>
+          </div>
+          <div class="form-group">
+            <label for="image">Image Link
+            </label> <input type="text" name="image" class="form-control" id="image">
+            <br>
+          </div>
+          <div class="form-group">
+            <label for="category">Does the animals lives in the sea?</label>
+            <select class="form-control" id="category">
+              <option>sea</option>
+              <option>land</option>
+            </select>
+            <br>
+          </div>
+
+          <div class="form-group">
+            <label for="info">Animal description and Info</label>
+            <textarea class="form-control" name="info" id="info" rows="3"></textarea>
+            <br>
+          </div>
+          <div class="form-group">
+              <input type="submit" value="POST" class="submit" class="form-control addSubmit" id="postSubmit">
+          </div>
+        </form>
+      </div>
+      </div>
+
+      <!-- Delete and Edit Animals -->
+      <div id="editAnimals" class="container tab-pane fade"><br>
+        <h4 id="addMargin">Input animal detail below</h4>
+
+        <form>
+          <div class="col-sm-6">
+            <label for="name">Animal Name
+            </label> <input type="text" class="form-control" id="editSearch" placeholder="i.e Tiger">
+          </div>
+          <br>
+          <button type="button" id="editTab" class="btn btn-primary editSubmit">Submit</button>
+        </form>
+
+        <main role="main">
+          <div class="album py-5 bg-light">
+            <div class="container">
+
+              <div class="row" id="divAppendEdit">
+
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <!-- Delete animals -->
+
+    </div>
+  </div>
+  
+
+  <!--Modal here-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Animal Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4 class="containerHeading">Input animal detail below</h4>
+          <form id="postForm">
+            <div class="col-sm-8">
+              <label for="name">Animal Name
+              </label> <input type="text" class="form-control" id="putName" placeholder="i.e Tiger">
+              <br>
+            </div>
+
+            <div class="col-sm-8">
+              <label for="species">Species
+              </label> <input type="text" class="form-control" id="putSpecies">
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <label for="family">Family
+              </label> <input type="text" class="form-control" id="putFamily">
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <label for="class">Class
+              </label> <input type="text" class="form-control" id="putClass">
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <label for="external">External Link
+              </label> <input type="text" class="form-control" id="putExternal">
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <label for="image">Image Link
+              </label> <input type="text" class="form-control" id="putImage">
+              <br>
+            </div>
+            <div class="col-sm-8">
+              <label for="category">Does the animals lives in the sea?</label>
+              <select class="form-control" id="putCategory">
+                <option>sea</option>
+                <option>land</option>
+              </select>
+              <br>
+            </div>
+
+            <div class="col-sm-8">
+              <label for="info">Animal description and Info</label>
+              <textarea class="form-control" id="putInfo" rows="3"></textarea>
+              <br>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" id="saveEdit" class="btn btn-primary" data-dismiss="modal">
+            Save Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="../javascript/jquery.js"></script>
+  <script src="../javascript/dashboard.js"></script>
+ 
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  <script src="../javascript/main.js"></script>
+  
+</body>
+
+</html>
