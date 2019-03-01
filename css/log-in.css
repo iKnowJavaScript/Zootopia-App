@@ -98,3 +98,10 @@
     font-size: 2rem;
     margin-left: 80px;
   } 
+
+  .form-control, #submit {
+    border-radius: 5px!important;
+  }
+  .errorResult {
+    display: none;
+  }

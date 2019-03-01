@@ -41,6 +41,9 @@ $(document).ready(() => {
         if (adminUsername == username && adminPass == password) {
           console.log('Good to go')
           window.location.replace('http://127.0.0.1:5500/html/dashboard.html#addNewAnimals')
+        }else{
+          $(".errorResult").fadeIn();
+          $(".errorResult").delay(4000).fadeOut(2000);
         }
       }
     });
@@ -49,21 +52,3 @@ $(document).ready(() => {
 
 })
 
-
-// $.ajax({
-//   type: 'GET',
-//   url: 'http://localhost:3000/admin',
-//   success: function (admin) {
-//     adminUsername = admin.username;
-//     adminPass = admin.pass;
-//     if (admin.password == password && admin.username == username) {
-//       console.log('Good to go')
-//       window.location.replace('http://127.0.0.1:5500/html/dashboard.html#addNewAnimals')
-//     } else {
-//       console.log('check matching')
-//     }
-//   },
-//   error: function () {
-//     alert('error loading orders');
-//   }
-// });
