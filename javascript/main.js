@@ -35,6 +35,7 @@ $(function() {
 */
 
 $(document).ready(() => {
+  
   let $divAppend = $('#divAppend');// for index GET
 
   let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
@@ -224,4 +225,20 @@ $(document).ready(() => {
       }
     });
   });
+
+  //Delete a specific animal 
+  $divAppendAdmin.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
+    e.preventDefault();
+    let $div = $(this).closest('div');
+
+    $.ajax({
+      type: 'DELETE',
+      url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+      success: function () {
+        $div.fadeOut(300, function () {
+          $(this).remove();
+        })
+      }
+    })
+  })
 })

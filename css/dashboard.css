@@ -119,3 +119,13 @@ button {
     font-weight: 600;
     font-size: 30px;
 }
+
+/* For validation */
+#postForm label.error {
+    color: red;
+    font-weight: bold;
+  }
+  .main {
+    max-width: 600px;
+    margin: 0 auto;
+  }

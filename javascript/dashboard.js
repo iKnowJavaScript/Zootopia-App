@@ -1,4 +1,45 @@
 $(document).ready(function () {
+  //Validation here
+    $("#postForm").validate({
+        rules : {
+            name : {
+              required : true
+            },
+            species : {
+                required : true
+              
+            },
+            family : {
+                required : true
+                
+            },
+            class : {
+              required : true
+            },
+            image : {
+                required : true
+              
+            },
+            info : {
+                required : true
+                
+            }
+        },
+        messages: {
+            name: "Animal name is required",
+            species: "Species is required",
+            family: "Animal must belong somewhere",
+            class: "Class is required",
+            image: "An image link is required",
+            info: "Enter some info about this animal"
+        },
+        submitHandler: function(form) {
+          alert("done")
+            form.submit();
+        }
+    });
+
+
   //set current time to dashboard
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
