@@ -3,6 +3,7 @@ $(document).ready(() => {
   let $divAppend = $('#divAppend');// for index GET
 
   let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
+  let $modalBody = $(".modal-body"); // for populating user view modal
 
   let $name = $('#name');
   let $species = $('#species');
@@ -67,6 +68,7 @@ $(document).ready(() => {
     `);
   }
 
+  
 
   //Get all animals to index and admin dashboard
   $.ajax({
