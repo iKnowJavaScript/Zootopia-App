@@ -1,39 +1,3 @@
-/*
-$(function() {
-  $('#book-form').validate({
-    rules: {
-      title: {
-        required: true,
-        minlength: 2
-      },
-      author: {
-        required: true,
-        minlength: 2
-      },
-      isbn: {
-        required: true,
-        minlength: 2
-      }
-    },
-    messages: {
-      title: {
-        required: "A book has to have an Title",
-        minlength: "Title must consist of at least two character"
-      },
-      author: {
-        required: "A book has to have an Author",
-        minlength: "Author name must consist of at least two character"
-      },
-      isbn: {
-        required: "ISBN is required",
-        minlength: "Should consist of at least two character" 
-      }
-
-    }
-  })
-})
-*/
-
 $(document).ready(() => {
   
   let $divAppend = $('#divAppend');// for index GET
@@ -61,15 +25,16 @@ $(document).ready(() => {
   function addAnimal(animal) {
     $divAppend.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
-      <img class="card-img-top" src=${animal.image} alt="Card image cap">
+      <img class="card-img-top" src=${animal.image} alt="${animal.name} image">
       <div class="card-body">
         <p class="card-text data-name">${animal.name}</p>
         <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
         <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+        <p class="card-text"><strong>Family: </strong> ${animal.family}</p>
         <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button type="button" data-id=${animal.id} id="viewButton" data-toggle="modal" data-target="#exampleModal2" class="btn btn-sm btn-outline-secondary">View</button>
             <button type="button" class="btn btn-sm btn-outline-secondary external"><a href=${animal.external}>Link</a></button>
           </div>
         </div>
@@ -82,11 +47,12 @@ $(document).ready(() => {
   function addAnimalAdmin(animal) {
     $divAppendAdmin.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
-      <img class="card-img-top" src=${animal.image} alt="Card image cap">
+      <img class="card-img-top" src=${animal.image} alt="${animal.name} image">
       <div class="card-body">
       <p class="card-text data-name">${animal.name}</p>
       <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
       <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+      <p class="card-text"><strong>Family: </strong> ${animal.family}</p>
       <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
@@ -100,6 +66,7 @@ $(document).ready(() => {
   </div>
     `);
   }
+
 
   //Get all animals to index and admin dashboard
   $.ajax({

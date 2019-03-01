@@ -71,7 +71,7 @@ $(document).ready(function () {
   function addAnimalAdmin(animal) {
     $divAppendEdit.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
-      <img class="card-img-top" src=${animal.image} alt="Card image cap">
+      <img class="card-img-top" src=${animal.image} alt="${animal.name} image">
       <div class="card-body">
       <p class="card-text data-name">${animal.name}</p>
       <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
