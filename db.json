@@ -1,6 +1,17 @@
 {
   "animals": [
     {
+      "name": "Tiger",
+      "species": "Panthera",
+      "family": "Felidae",
+      "class": "Mammalia",
+      "category": "land",
+      "external": "https://en.wikipedia.org/wiki/Tiger",
+      "image": "https://images.theconversation.com/files/242298/original/file-20181025-71032-1hmrk2l.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=496&fit=clip",
+      "info": "The tiger is the largest cat species, most recognizable for its pattern of dark vertical stripes on reddish-orange fur with a lighter underside. The species is classified in the genus Panthera with the lion, jaguar, leopard, and snow leopard.",
+      "id": 3
+    },
+    {
       "name": "Shark Fish",
       "species": "Rhincodon typus",
       "family": "Lamnidae",
@@ -23,6 +34,17 @@
       "id": 5
     },
     {
+      "name": "Giant Panda",
+      "species": "A. Melanoleuca",
+      "family": "Ursidae",
+      "class": "Mammalia",
+      "category": "land",
+      "external": "https://www.travelchinaguide.com/tour/panda/",
+      "image": "http://goodnature.nathab.com/wp-content/uploads/2016/11/panda-walk.jpg",
+      "info": "The giant panda, also known as panda bear or simply panda, is a bear native to south central China. It is easily recognized by the large, distinctive black patches around its eyes, over the ears, and across its round body. The name 'giant panda' is sometimes used to distinguish it from the unrelated red panda.",
+      "id": 6
+    },
+    {
       "name": "hooping Crane",
       "species": "Grus americana",
       "family": "Mamalia",
@@ -37,8 +59,8 @@
       "name": "Blue Whale",
       "species": "Balaenoptera musculus",
       "family": "Mamalia",
-      "category": "sea",
       "class": "Balaenopteridae",
+      "category": "sea",
       "external": "https://animaldiversity.org/accounts/Balaenoptera_musculus/",
       "image": "https://natgeo.imgix.net/factsheets/thumbnails/UnderstandingTheBlueWhale_whale.jpg?auto=compress,format&w=1024&h=560&fit=crop",
       "info": "The blue whale is a marine mammal belonging to the baleen whale parvorder, Mysticeti. At up to 29.9 metres in length and with a maximum recorded weight of 173 tonnes, it is the largest animal known to have ever existed.",
@@ -48,8 +70,8 @@
       "name": "Sea Otter",
       "species": "Enhydra lutris",
       "family": "Mustelidae",
-      "category": "sea",
       "class": "Mammalia",
+      "category": "sea",
       "external": "https://en.wikipedia.org/wiki/Sea_otter",
       "image": "https://oregonwild.org/sites/default/files/otter-zoo.jpg",
       "info": "The sea otter is a marine mammal native to the coasts of the northern and eastern North Pacific Ocean. Adult sea otters typically weigh between 14 and 45 kg, making them the heaviest members of the weasel family, but among the smallest marine mammals.",
@@ -70,8 +92,8 @@
       "name": "Tasmania Devil",
       "species": "Sarcophilus Harisii",
       "family": "Dasyuridae",
-      "category": "land",
       "class": "Mammalia",
+      "category": "land",
       "external": "https://en.wikipedia.org/wiki/Tasmanian_devil",
       "image": "https://this.deakin.edu.au/wp-content/uploads/2017/06/tassie-devil-crop-2.jpg",
       "info": "The Tasmanian devil is a carnivorous marsupial of the family Dasyuridae. It was once native to mainland Australia and is now found in the wild only on the island state of Tasmania, including tiny east-coast Maria Island where there is a conservation project with disease-free animals.",

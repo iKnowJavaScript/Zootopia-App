@@ -1,14 +1,15 @@
 $(document).ready(() => {
-  
+
   let $divAppend = $('#divAppend');// for index GET
 
   let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
+  let $modalBody = $(".modal-body"); // for populating user view modal
 
   let $name = $('#name');
   let $species = $('#species');
   let $family = $('#family');
   let $class = $('#class');
-  let $category = $('#sea');
+  let $category = $( "#category option:selected" ).text();
   let $external = $('#external');
   let $image = $('#image');
   let $info = $('#info');
@@ -35,7 +36,7 @@ $(document).ready(() => {
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <button type="button" data-id=${animal.id} id="viewButton" data-toggle="modal" data-target="#exampleModal2" class="btn btn-sm btn-outline-secondary">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary external"><a href=${animal.external}>Link</a></button>
+            <a type="button" class="btn btn-sm btn-outline-secondary external" href="${animal.external}">Link</a>
           </div>
         </div>
       </div>
@@ -68,6 +69,7 @@ $(document).ready(() => {
   }
 
 
+
   //Get all animals to index and admin dashboard
   $.ajax({
     type: 'GET',
@@ -79,7 +81,7 @@ $(document).ready(() => {
       })
     },
     error: function () {
-      alert('error loading orders');
+      alert('error loading details');
     }
   });
 
@@ -93,12 +95,12 @@ $(document).ready(() => {
       species: $species.val(),
       family: $family.val(),
       class: $class.val(),
-      category: $category.val(),
+      category: $category,
       external: $external.val(),
       image: $image.val(),
       info: $info.val()
     };
-
+   
     $('#postForm').trigger("reset");
     $.ajax({
       type: 'POST',
@@ -108,7 +110,7 @@ $(document).ready(() => {
         addAnimal(newAnimal);
       },
       error: function () {
-        alert('Error saving order')
+        alert('Error saving animal to database')
       }
     })
   })
@@ -130,7 +132,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -149,7 +151,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -168,7 +170,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -188,24 +190,39 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading');
       }
     });
   });
 
-  //Delete a specific animal 
-  $divAppendAdmin.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
+  //Get an animal to populate viewModal
+  $divAppend.delegate('#viewButton', 'click', function (e) { //.delete has not been added to the page yet hence 
     e.preventDefault();
-    let $div = $(this).closest('div');
-
     $.ajax({
-      type: 'DELETE',
+      type: 'GET',
       url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
-      success: function () {
-        $div.fadeOut(300, function () {
-          $(this).remove();
-        })
+      success: function (animal) {
+        viemInModal(animal);
+      },
+      error: function () {
+        alert('error loading animal details');
       }
     })
   })
+
+
+  function viemInModal(animal) {
+    $modalBody.append(`
+    <img src=${animal.image} class="img-thumbnail" alt="${animal.name} image">
+      <div class="card-body">
+      <p class="card-text data-name">${animal.name}</p>
+      <p class="card-text"><strong>Info: </strong> ${animal.info}</p>
+      <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+      <p class="card-text"><strong>Family: </strong> ${animal.family}</p>
+      <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
+      <p class="card-text">This animal lines in on  ${animal.category}</p>
+      </div>
+    `);
+  }
+
 })

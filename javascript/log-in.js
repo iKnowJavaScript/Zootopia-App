@@ -10,7 +10,7 @@ $(document).ready(() => {
 
       if (adminUsername == localStorage.getItem('username') && adminPass == localStorage.getItem('password')) {
         console.log('Good to go')
-        window.location.replace('http://127.0.0.1:5500/html/dashboard.html#addNewAnimals')
+        window.location.replace('./dashboard.html')
       }
     }
   });
@@ -40,7 +40,7 @@ $(document).ready(() => {
 
         if (adminUsername == username && adminPass == password) {
           console.log('Good to go')
-          window.location.replace('http://127.0.0.1:5500/html/dashboard.html#addNewAnimals')
+          window.location.replace('./dashboard.html')
         } else {
           $(".errorResult").fadeIn();
           $(".errorResult").delay(4000).fadeOut(2000);
