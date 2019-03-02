@@ -23,28 +23,6 @@
       "id": 5
     },
     {
-      "name": "hooping Crane",
-      "species": "Grus americana",
-      "family": "Mamalia",
-      "class": "Birds",
-      "category": "land",
-      "external": "https://www.savingcranes.org/whooping-crane-top-ten-for-endangered-species-day/",
-      "image": "http://i.huffpost.com/gen/1616988/thumbs/o-WHOOPING-CRANE-facebook.jpg",
-      "info": "The whooping crane, the tallest North American bird, is an endangered crane species named for its whooping sound. Along with the sandhill crane, it is one of only two crane species found in North America. The whooping crane's lifespan is estimated to be 22 to 24 years in the wild.",
-      "id": 7
-    },
-    {
-      "name": "Blue Whale",
-      "species": "Balaenoptera musculus",
-      "family": "Mamalia",
-      "category": "sea",
-      "class": "Balaenopteridae",
-      "external": "https://animaldiversity.org/accounts/Balaenoptera_musculus/",
-      "image": "https://natgeo.imgix.net/factsheets/thumbnails/UnderstandingTheBlueWhale_whale.jpg?auto=compress,format&w=1024&h=560&fit=crop",
-      "info": "The blue whale is a marine mammal belonging to the baleen whale parvorder, Mysticeti. At up to 29.9 metres in length and with a maximum recorded weight of 173 tonnes, it is the largest animal known to have ever existed.",
-      "id": 8
-    },
-    {
       "name": "Sea Otter",
       "species": "Enhydra lutris",
       "family": "Mustelidae",

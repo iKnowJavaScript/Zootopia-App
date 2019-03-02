@@ -196,7 +196,7 @@ a.name:hover {
 footer {
     font-family: 'PT Sans', sans-serif;
 }
-#divAppend {
+#divAppend, #exampleModal2 {
     font-family: 'Inconsolata', monospace;
 }
 .data-name {

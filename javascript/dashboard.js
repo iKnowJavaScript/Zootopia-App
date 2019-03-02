@@ -1,43 +1,43 @@
 $(document).ready(function () {
-  //Validation here
-    $("#postForm").validate({
-        rules : {
-            name : {
-              required : true
-            },
-            species : {
-                required : true
-              
-            },
-            family : {
-                required : true
-                
-            },
-            class : {
-              required : true
-            },
-            image : {
-                required : true
-              
-            },
-            info : {
-                required : true
-                
-            }
-        },
-        messages: {
-            name: "Animal name is required",
-            species: "Species is required",
-            family: "Animal must belong somewhere",
-            class: "Class is required",
-            image: "An image link is required",
-            info: "Enter some info about this animal"
-        },
-        submitHandler: function(form) {
-          alert("done")
-            form.submit();
-        }
-    });
+  // //Validation here
+  //   $("#postForm").validate({
+  //       rules : {
+  //           name : {
+  //             required : true
+  //           },
+  //           species : {
+  //               required : true
+
+  //           },
+  //           family : {
+  //               required : true
+
+  //           },
+  //           class : {
+  //             required : true
+  //           },
+  //           image : {
+  //               required : true
+
+  //           },
+  //           info : {
+  //               required : true
+
+  //           }
+  //       },
+  //       messages: {
+  //           name: "Animal name is required",
+  //           species: "Species is required",
+  //           family: "Animal must belong somewhere",
+  //           class: "Class is required",
+  //           image: "An image link is required",
+  //           info: "Enter some info about this animal"
+  //       },
+  //       submitHandler: function(form) {
+  //         alert("done")
+  //           form.submit();
+  //       }
+  //   });
 
 
   //set current time to dashboard
@@ -107,7 +107,7 @@ $(document).ready(function () {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading animal');
       }
     });
   });
@@ -124,6 +124,9 @@ $(document).ready(function () {
         $div.fadeOut(300, function () {
           $(this).remove();
         })
+      },
+      error: function () {
+        alert('Error deleting animal');
       }
     })
   })
@@ -151,7 +154,7 @@ $(document).ready(function () {
       success: function () {
       },
       error: function () {
-        alert('Error saving order')
+        alert('Error saving animal details')
       }
     })
   })

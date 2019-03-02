@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  
+
   let $divAppend = $('#divAppend');// for index GET
 
   let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
@@ -68,7 +68,7 @@ $(document).ready(() => {
     `);
   }
 
-  
+
 
   //Get all animals to index and admin dashboard
   $.ajax({
@@ -81,7 +81,7 @@ $(document).ready(() => {
       })
     },
     error: function () {
-      alert('error loading orders');
+      alert('error loading details');
     }
   });
 
@@ -110,7 +110,7 @@ $(document).ready(() => {
         addAnimal(newAnimal);
       },
       error: function () {
-        alert('Error saving order')
+        alert('Error saving animal to database')
       }
     })
   })
@@ -132,7 +132,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -151,7 +151,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -170,7 +170,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading...');
       }
     });
   });
@@ -190,24 +190,39 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading orders');
+        alert('error loading');
       }
     });
   });
 
-  //Delete a specific animal 
-  $divAppendAdmin.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
+  //Get an animal to populate viewModal
+  $divAppend.delegate('#viewButton', 'click', function (e) { //.delete has not been added to the page yet hence 
     e.preventDefault();
-    let $div = $(this).closest('div');
-
     $.ajax({
-      type: 'DELETE',
+      type: 'GET',
       url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
-      success: function () {
-        $div.fadeOut(300, function () {
-          $(this).remove();
-        })
+      success: function (animal) {
+        viemInModal(animal);
+      },
+      error: function () {
+        alert('error loading animal details');
       }
     })
   })
+
+
+  function viemInModal(animal) {
+    $modalBody.append(`
+    <img src=${animal.image} class="img-thumbnail" alt="${animal.name} image">
+      <div class="card-body">
+      <p class="card-text data-name">${animal.name}</p>
+      <p class="card-text"><strong>Info: </strong> ${animal.info}</p>
+      <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
+      <p class="card-text"><strong>Family: </strong> ${animal.family}</p>
+      <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
+      <p class="card-text">This animal lines in on  ${animal.category}</p>
+      </div>
+    `);
+  }
+
 })
