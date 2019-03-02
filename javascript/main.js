@@ -9,7 +9,7 @@ $(document).ready(() => {
   let $species = $('#species');
   let $family = $('#family');
   let $class = $('#class');
-  let $category = $('#sea');
+  let $category = $( "#category option:selected" ).text();
   let $external = $('#external');
   let $image = $('#image');
   let $info = $('#info');
@@ -95,12 +95,12 @@ $(document).ready(() => {
       species: $species.val(),
       family: $family.val(),
       class: $class.val(),
-      category: $category.val(),
+      category: $category,
       external: $external.val(),
       image: $image.val(),
       info: $info.val()
     };
-
+   
     $('#postForm').trigger("reset");
     $.ajax({
       type: 'POST',

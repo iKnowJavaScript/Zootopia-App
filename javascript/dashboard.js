@@ -140,7 +140,7 @@ $(document).ready(function () {
       species: $species.val(),
       family: $family.val(),
       class: $class.val(),
-      category: $category.val(),
+      category: $category.find(":selected").text(),
       external: $external.val(),
       image: $image.val(),
       info: $info.val()
