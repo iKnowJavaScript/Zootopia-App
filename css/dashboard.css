@@ -141,3 +141,8 @@ button {
     text-decoration: none!important;
     color: #212529!important;
 }
+
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}

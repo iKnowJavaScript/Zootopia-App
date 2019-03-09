@@ -215,3 +215,8 @@ footer {
 a.name {
     text-shadow: 2px 2px 11px #A4A1A2;
 }
+
+.card-img-top {
+    height: 15vw;
+    object-fit: cover;
+}
