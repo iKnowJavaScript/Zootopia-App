@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
    background-color: #f8f9fa; 
@@ -21,8 +21,11 @@ body {
     color: rgb(229, 234, 240);
 }
 .nav-link {
-    color: rgb(169, 171, 173);
+    color: rgb(242, 244, 247);
     font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 .tab-content {
     padding: 20px;
@@ -64,9 +67,8 @@ button {
  }
 
 .btn-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .edit {
@@ -84,6 +86,7 @@ button {
 
 .containerHeading {
     margin-bottom: 20px;
+    font-size: 2.5rem;
 }
 #addMargin {
     margin-bottom: 10px;
@@ -99,7 +102,7 @@ button {
     margin-top: 5px!important;
 }
 .card-text {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
@@ -137,7 +140,7 @@ button {
 }
 
 .top-heading {
-    font-size: 2rem;
+    font-size: 3rem;
     text-decoration: none!important;
     color: #212529!important;
 }
@@ -145,4 +148,37 @@ button {
 .card-img-top {
     height: 15vw;
     object-fit: cover;
+}
+
+div.flexContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.dashSearch {
+    display: flex;
+    margin-bottom: 2rem;
+    width: 50vw;
+}
+
+.remove {
+    margin-left: 1rem !important;
+    border-radius: 3px !important;
+    width: 5rem !important;
+    background-color: rgb(240, 101, 101) !important;
+    border-color: white !important;
+    color: white;
+}
+.remove:hover{
+    color: rgb(80, 76, 76);
+}
+#editButton {
+    border-radius: 3px !important;
+    width: 5rem !important;
+    background-color: rgb(240, 212, 88) !important;
+    border-color: white !important;
+    color: white;
+}
+#editButton:hover{
+    color: rgb(80, 76, 76);
 }

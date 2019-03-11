@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
 @import url('https://fonts.googleapis.com/css?family=Exo');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
     background-color: #f8f9fa;
@@ -197,7 +197,8 @@ footer {
     font-family: 'PT Sans', sans-serif;
 }
 #divAppend, #exampleModal2 {
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
 }
 .data-name {
     font-weight: 600;
@@ -219,4 +220,31 @@ a.name {
 .card-img-top {
     height: 15vw;
     object-fit: cover;
+}
+
+.btn-group {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.external {
+    border-radius: 3px !important;
+    margin-left: 1rem !important;
+    width: 5rem !important;
+    background-color: rgb(240, 212, 88) !important;
+    border-color: white !important;
+    color: white !important;
+}
+.external:hover{
+    color: rgb(80, 76, 76) !important;
+}
+#viewButton {
+    border-radius: 3px !important;
+    width: 5rem !important;
+    background-color: rgb(132, 240, 122) !important;
+    border-color: white !important;
+    color: white !important;
+}
+#viewButton:hover{
+    color: rgb(80, 76, 76) !important;
 }

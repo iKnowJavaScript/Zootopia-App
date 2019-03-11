@@ -57,6 +57,7 @@ $(document).ready(function () {
 
   //declaring variable to be used later
   let $divAppendEdit = $('#divAppendEdit');
+  let $divAppendAdmin = $('#divAppendAdmin');
 
   let $name = $('#putName'); //tittle
   let $species = $('#putSpecies');
@@ -69,7 +70,7 @@ $(document).ready(function () {
 
 
   function addAnimalAdmin(animal) {
-    $divAppendEdit.append(`<div class="col-md-4">
+    $divAppendAdmin.append(`<div class="col-md-4">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" src=${animal.image} alt="${animal.name} image">
       <div class="card-body">
@@ -94,16 +95,17 @@ $(document).ready(function () {
   $('#editTab').click(function (e) {
     e.preventDefault();
     let $editSearch = $('#editSearch');
-    $editSearch = $editSearch.val();
+    $editSearch2 = $editSearch.val();
 
-    $divAppendEdit.empty();
+    $divAppendAdmin.empty();
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals?q=' + $editSearch,
+      url: 'http://localhost:3000/animals?q=' + $editSearch2,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimalAdmin(animal);
+          $editSearch.val('')
         })
       },
       error: function () {
