@@ -231,7 +231,7 @@ a.name {
     border-radius: 3px !important;
     margin-left: 1rem !important;
     width: 5rem !important;
-    background-color: rgb(240, 212, 88) !important;
+    background-color: rgb(72, 158, 216) !important;
     border-color: white !important;
     color: white !important;
 }
@@ -241,7 +241,7 @@ a.name {
 #viewButton {
     border-radius: 3px !important;
     width: 5rem !important;
-    background-color: rgb(132, 240, 122) !important;
+    background-color: rgb(72, 158, 216) !important;
     border-color: white !important;
     color: white !important;
 }

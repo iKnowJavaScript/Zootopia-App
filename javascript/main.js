@@ -1,25 +1,14 @@
 $(document).ready(() => {
 
   let $divAppend = $('#divAppend');// for index GET
-
-  let $divAppendAdmin = $('#divAppendAdmin'); //for admin GET
   let $modalBody = $(".modal-body"); // for populating user view modal
-
-  let $name = $('#name');
-  let $species = $('#species');
-  let $family = $('#family');
-  let $class = $('#class');
-  let $category = $( "#category option:selected" ).text();
-  let $external = $('#external');
-  let $image = $('#image');
-  let $info = $('#info');
-
-
 
   //limit character lenght
   function limitChar(string) {
     if (string.length > 150) {
       return string.substring(0, 150) + '.....';
+    }else{
+      return string;
     }
   }
 
@@ -45,39 +34,14 @@ $(document).ready(() => {
     `);
   }
 
-  function addAnimalAdmin(animal) {
-    $divAppendAdmin.append(`<div class="col-md-4">
-    <div class="card mb-4 box-shadow">
-      <img class="card-img-top" src=${animal.image} alt="${animal.name} image">
-      <div class="card-body">
-      <p class="card-text data-name">${animal.name}</p>
-      <p class="card-text"><strong>Info: </strong> ${limitChar(animal.info)}</p>
-      <p class="card-text"><strong>Species: </strong> ${animal.species}</p>
-      <p class="card-text"><strong>Family: </strong> ${animal.family}</p>
-      <p class="card-text"><strong>Class: </strong> ${animal.class}</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-          <input type="text" id="animalId" value="${animal.id}" style="display:none;">
-          <button type="button" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
-          <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    `);
-  }
 
-
-
-  //Get all animals to index and admin dashboard
+  //Get all animals to index 
   $.ajax({
     type: 'GET',
     url: 'http://localhost:3000/animals',
     success: function (animals) {
       $.each(animals, (i, animal) => {
         addAnimal(animal);
-        addAnimalAdmin(animal);
       })
     },
     error: function () {
@@ -85,35 +49,6 @@ $(document).ready(() => {
     }
   });
 
-
-  //POT new animal to Database
-  $('#postSubmit').click(function (e) {
-    e.preventDefault();
-
-    const animal = {
-      name: $name.val(),
-      species: $species.val(),
-      family: $family.val(),
-      class: $class.val(),
-      category: $category,
-      external: $external.val(),
-      image: $image.val(),
-      info: $info.val()
-    };
-   
-    $('#postForm').trigger("reset");
-    $.ajax({
-      type: 'POST',
-      url: 'http://localhost:3000/animals',
-      data: animal,
-      success: function (newAnimal) {
-        addAnimal(newAnimal);
-      },
-      error: function () {
-        alert('Error saving animal to database')
-      }
-    })
-  })
 
   //get for seachBox
   $('#search').click(function (e) {

@@ -1,45 +1,4 @@
 $(document).ready(function () {
-  // //Validation here
-  //   $("#postForm").validate({
-  //       rules : {
-  //           name : {
-  //             required : true
-  //           },
-  //           species : {
-  //               required : true
-
-  //           },
-  //           family : {
-  //               required : true
-
-  //           },
-  //           class : {
-  //             required : true
-  //           },
-  //           image : {
-  //               required : true
-
-  //           },
-  //           info : {
-  //               required : true
-
-  //           }
-  //       },
-  //       messages: {
-  //           name: "Animal name is required",
-  //           species: "Species is required",
-  //           family: "Animal must belong somewhere",
-  //           class: "Class is required",
-  //           image: "An image link is required",
-  //           info: "Enter some info about this animal"
-  //       },
-  //       submitHandler: function(form) {
-  //         alert("done")
-  //           form.submit();
-  //       }
-  //   });
-
-
   //set current time to dashboard
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
@@ -51,22 +10,34 @@ $(document).ready(function () {
   //limit character lenght
   function limitChar(string) {
     if (string.length > 150) {
-      return string.substring(0, 150) + '.....';
+      return string.substring(0, 155) + '.....';
+    } else {
+      return string;
     }
   }
 
   //declaring variable to be used later
-  let $divAppendEdit = $('#divAppendEdit');
   let $divAppendAdmin = $('#divAppendAdmin');
 
-  let $name = $('#putName'); //tittle
-  let $species = $('#putSpecies');
-  let $family = $('#putFamily');
-  let $class = $('#putClass');
-  let $category = $('#putCategory');
-  let $external = $('#putExternal');
-  let $image = $('#putImage');
-  let $info = $('#putInfo');
+  //for editButton
+  let $editName = $('#putName'); //tittle
+  let $editSpecies = $('#putSpecies');
+  let $editFamily = $('#putFamily');
+  let $editClass = $('#putClass');
+  let $editCategory = $('#putCategory');
+  let $editExternal = $('#putExternal');
+  let $editImage = $('#putImage');
+  let $editInfo = $('#putInfo');
+
+  //for  POST request
+  let $name = $('#name');
+  let $species = $('#species');
+  let $family = $('#family');
+  let $class = $('#class');
+  let $category = $("#category");
+  let $external = $('#external');
+  let $image = $('#image');
+  let $info = $('#info');
 
 
   function addAnimalAdmin(animal) {
@@ -90,6 +61,23 @@ $(document).ready(function () {
   </div>
     `);
   }
+
+  //Get all animals to admin dashboard
+  function getAll() {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:3000/animals',
+      success: function (animals) {
+        $.each(animals, (i, animal) => {
+          addAnimalAdmin(animal);
+        })
+      },
+      error: function () {
+        alert('error loading details');
+      }
+    });
+  }
+  getAll();
 
   //To search for a specific animal with name
   $('#editTab').click(function (e) {
@@ -115,37 +103,50 @@ $(document).ready(function () {
   });
 
   //Delete a specific animal 
-  $divAppendEdit.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
+  $divAppendAdmin.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
     e.preventDefault();
     let $div = $(this).closest('div');
-
-    $.ajax({
-      type: 'DELETE',
-      url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
-      success: function () {
-        $div.fadeOut(300, function () {
-          $(this).remove();
-        })
-      },
-      error: function () {
-        alert('Error deleting animal');
-      }
-    })
+    const confirmDelete = confirm("Do you want to Delete this Animal ?")
+    if (confirmDelete == true) {
+      $.ajax({
+        type: 'DELETE',
+        url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+        success: function () {
+          $div.fadeOut(300, function () {
+            $(this).closest('.col-md-4').remove();
+            //$divAppendAdmin.delegate.remove();
+            //$divAppendAdmin.empty();
+            //getAll();
+            Swal.fire({
+              position: 'center',
+              type: 'success',
+              title: 'Animal deleted from the database',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          })
+        },
+        error: function () {
+          alert('Error deleting animal');
+        }
+      })
+    }
   })
 
   //Edit animal detail
   $('#saveEdit').on("click", function (e) {
     e.preventDefault();
+    $('#postForm').validate();
 
     const animal = {
-      name: $name.val(),
-      species: $species.val(),
-      family: $family.val(),
-      class: $class.val(),
-      category: $category.find(":selected").text(),
-      external: $external.val(),
-      image: $image.val(),
-      info: $info.val()
+      name: $editName.val(),
+      species: $editSpecies.val(),
+      family: $editFamily.val(),
+      class: $editClass.val(),
+      category: $editCategory.find(":selected").text(),
+      external: $editExternal.val(),
+      image: $editImage.val(),
+      info: $editInfo.val()
     };
 
     //$('#saveEdit').trigger("reset");
@@ -154,12 +155,50 @@ $(document).ready(function () {
       url: 'http://localhost:3000/animals/' + $("#animalId").val(),
       data: animal,
       success: function () {
+        getAll();
       },
       error: function () {
         alert('Error saving animal details')
       }
     })
   })
+
+  //POST new animal to Database
+  $('#postForm').on('submit', function (e) {
+    e.preventDefault();
+
+    const animal = {
+      name: $name.val(),
+      species: $species.val(),
+      family: $family.val(),
+      class: $class.val(),
+      category: $category.val(),
+      external: $external.val(),
+      image: $image.val(),
+      info: $info.val()
+    };
+
+    $('#postForm').trigger("reset");
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/animals',
+      data: animal,
+      success: function (newAnimal) {
+        addAnimalAdmin(newAnimal);
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Animal saved to database',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      },
+      error: function () {
+        alert('Error saving animal to database')
+      },
+    })
+  })
+
 
   //logOut user
   $('#log-out').click(function (e) {
@@ -168,5 +207,4 @@ $(document).ready(function () {
     localStorage.removeItem("username")
     window.location.replace('../index.html')
   });
-
 })
