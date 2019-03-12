@@ -176,14 +176,6 @@ p.text-overlay:hover {
     color: white!important;
 }
 
-.admin-btn {
-    height: 55px;
-    margin-top: 15px;
-    color: white;
-    font-weight: 700;
-    line-height: 1.5;
-    background-color: rgb(202, 140, 24);
-}
 a.name {
     text-decoration: none;
     color: white;
@@ -222,29 +214,61 @@ a.name {
     object-fit: cover;
 }
 
-.btn-group {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.external {
+#external {
     border-radius: 3px !important;
-    margin-left: 1rem !important;
-    width: 5rem !important;
+    margin-left: 10px !important;
+    width: 4rem !important;
     background-color: rgb(72, 158, 216) !important;
     border-color: white !important;
     color: white !important;
 }
-.external:hover{
+#external:hover{
     color: rgb(80, 76, 76) !important;
 }
 #viewButton {
     border-radius: 3px !important;
-    width: 5rem !important;
+    width: 4rem !important;
     background-color: rgb(72, 158, 216) !important;
     border-color: white !important;
     color: white !important;
 }
 #viewButton:hover{
     color: rgb(80, 76, 76) !important;
+}
+
+.admin-btn {
+    /* height: 55px;
+    margin-top: 15px;
+    color: white;
+    font-weight: 700;
+    line-height: 1.5;
+    background-color: rgb(202, 140, 24); */
+  height: 55px;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-color: #f1c925;
+  color: #fff;
+  background-image: linear-gradient(45deg, rgb(44, 42, 42) 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+}
+.admin-btn:hover, .admin-btn:focus{
+  color: #fff;
+  border-color: #fff;
+  outline: 0;
+  background-position: 0;
 }
