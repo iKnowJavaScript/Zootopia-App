@@ -272,3 +272,69 @@ a.name {
   outline: 0;
   background-position: 0;
 }
+
+@media only screen and (min-width : 250px) and (max-width : 980px) {
+    div.flex {
+        margin-right: 0px;
+        margin-left: 20px;
+    }
+    div.header-search {
+        width: 65vw !important;
+    }
+    div.middle-land, div.middle-sea {
+        font-size: 0.8rem;
+    }
+    div.container {
+        max-width: 95vw;
+    }
+    .admin-btn {
+        height: 50px;
+        padding: 10px;
+    }
+    .py-5 {
+        padding-top: 0rem !important;
+    }
+}
+
+@media only screen and (min-width : 300px) and (max-width : 799px){
+    div.header-search {
+        width: 70vw !important;
+    }
+    .sea, .land {
+        display: none;
+    }
+     div.animal-category {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+    } 
+    div.middle-land, div.middle-sea {
+        position: relative;
+        opacity: 1;
+        top: 0;
+        width: 100%;
+        font-size: 0.7rem;
+    }
+    div.middle-land {
+        left: 60%;
+    }
+    div.middle-sea {
+        left: 40%;
+    }
+    div.load {
+        padding-bottom: 5px;
+        margin-top: 3rem;
+        
+    }
+    p.text-overlay {
+        background-color: rgb(44, 42, 42);
+        border: 2px solid rgb(248, 171, 28);
+    }
+    #divAppend {
+        margin-right: 5rem;
+        margin-left: 5rem;
+    }
+    .card-img-top {
+        height: 35vw;
+    }
+}
