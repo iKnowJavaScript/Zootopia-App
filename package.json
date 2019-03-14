@@ -2,9 +2,11 @@
   "name": "zootopia-app",
   "version": "1.0.0",
   "description": "A web Application for Zootopia Zoo to Manage animal Species and detail",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "json-server --watch db.json"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "serve": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",
