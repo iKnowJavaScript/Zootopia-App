@@ -4,9 +4,9 @@
   "description": "A web Application for Zootopia Zoo to Manage animal Species and detail",
   "main": "server.js",
   "scripts": {
-    "statt": "node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js",
-    "start": "json-server --watch db.json"
+    "serve": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",
