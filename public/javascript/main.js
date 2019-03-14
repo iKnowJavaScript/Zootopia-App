@@ -38,7 +38,7 @@ $(document).ready(() => {
   //Get all animals to index 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/animals',
+    url: `${baseUrl}animals`,
     success: function (animals) {
       $.each(animals, (i, animal) => {
         addAnimal(animal);
