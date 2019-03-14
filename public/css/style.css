@@ -359,6 +359,7 @@ a.name {
 @media only screen and (min-width : 300px) and (max-width : 491px) {
     div.header-search {
         width: 70vw !important;
+        font-size: 0.8rem;
     }
     .sea, .land {
         display: none;
@@ -367,6 +368,7 @@ a.name {
         display: flex;
         justify-content: center;
         height: 50px;
+        margin-bottom: 20px !important;
     } 
     div.middle-land, div.middle-sea {
         position: relative;
@@ -396,7 +398,7 @@ a.name {
         margin-left: 2rem;
     }
     .card-img-top {
-        height: 35vw;
+        height: 40vw;
     }
     div.container-top {
         height: 50vh;
@@ -407,7 +409,7 @@ a.name {
         margin-top: 4rem;
     }
     .form-row {
-        margin-left: -50px;
+        margin-left: -60px;
     }
     div.col {
         display: flex;
@@ -468,5 +470,13 @@ a.name {
         /* padding: 16px 0px; */
         width: 50%;
         font-size: 1rem;
+    }
+    .col-md-4 {
+        flex: 0 0 100.333333%;
+        max-width: 100%;
+    }
+    .modal {
+        width: 90vw;
+        height: 90vh;
     }
 }

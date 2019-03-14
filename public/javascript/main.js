@@ -39,6 +39,7 @@ $(document).ready(() => {
   $.ajax({
     type: 'GET',
     url: `${baseUrl}animals`,
+    //url: `http://localhost:3000/animals`,
     success: function (animals) {
       $.each(animals, (i, animal) => {
         addAnimal(animal);
