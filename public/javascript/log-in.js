@@ -3,7 +3,7 @@ $(document).ready(() => {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/admin',
+    url: `${baseUrl}admin`,
     success: function (admin) {
       let adminUsername = admin.username;
       let adminPass = admin.password;
@@ -33,7 +33,7 @@ $(document).ready(() => {
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/admin',
+      url: `${baseUrl}admin`,
       success: function (admin) {
         let adminUsername = admin.username;
         let adminPass = admin.password;

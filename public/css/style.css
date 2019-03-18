@@ -479,4 +479,7 @@ a.name {
         width: 90vw;
         height: 90vh;
     }
+    .form-control {
+        width: 80%;
+    }
 }

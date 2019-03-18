@@ -61,7 +61,7 @@ $(document).ready(() => {
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals?q=' + $searchName,
+      url: `${baseUrl}animals?q=${$searchName}`,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
@@ -80,7 +80,7 @@ $(document).ready(() => {
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals?category=sea',
+      url: `${baseUrl}animals?category=sea`,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
@@ -99,7 +99,7 @@ $(document).ready(() => {
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals?category=land',
+      url: `${baseUrl}animals?category=land`,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
@@ -119,7 +119,7 @@ $(document).ready(() => {
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals',
+      url: `${baseUrl}animals`,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimal(animal);
@@ -136,7 +136,7 @@ $(document).ready(() => {
     e.preventDefault();
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+      url: `${baseUrl}animals/${$(this).attr('data-id')}`,
       success: function (animal) {
         viemInModal(animal);
       },

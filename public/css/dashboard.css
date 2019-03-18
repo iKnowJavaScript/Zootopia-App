@@ -177,3 +177,174 @@ div.flexContainer {
 #editButton:hover{
     color: rgb(80, 76, 76);
 }
+
+
+    /* For admin too */
+    @media only screen and (min-width : 300px) and (max-width : 799px){
+        div.container-top {
+            height: 60vh;
+        }
+        div.middle-land, div.middle-sea {
+            top: 74%;
+            font-size: 0.7rem;
+        }
+        div.animal-category {
+            margin-bottom: -20px;
+        }
+        .col-md-4 {
+            flex: 0 0 49.333333%;
+            max-width: 50.333333%;
+        }
+        .card-img-top {
+            height: 25vw;
+        }
+    }
+    
+    @media only screen and (min-width : 300px) and (max-width : 491px) {
+        div.header-search {
+            width: 70vw !important;
+            font-size: 0.8rem;
+        }
+        .sea, .land {
+            display: none;
+        }
+         div.animal-category {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            margin-bottom: 20px !important;
+        } 
+        div.middle-land, div.middle-sea {
+            position: relative;
+            opacity: 1;
+            top: 0;
+            width: 100%;
+            font-size: 0.7rem;
+        }
+        div.middle-land {
+            left: 60%;
+        }
+        div.middle-sea {
+            left: 40%;
+        }
+        div.load {
+            padding-bottom: 5px;
+            margin-top: 3rem;
+            
+        }
+        p.text-overlay {
+            background-color: rgb(44, 42, 42);
+            border: 2px solid rgb(248, 171, 28);
+            padding: 16px 5px;
+        }
+        #divAppend {
+            margin-right: 2rem;
+            margin-left: 2rem;
+        }
+        .card-img-top {
+            height: 40vw;
+        }
+        div.container-top {
+            height: 50vh;
+        }
+        div.header-search {
+            border: none;
+            box-shadow: none;
+            margin-top: 4rem;
+        }
+        .form-row {
+            margin-left: -60px;
+        }
+        div.col {
+            display: flex;
+        }
+        div.col > .form-control {
+            border-radius: 5px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        #search {
+            width: 100%;
+            height: 40px;
+        }
+        div.load {
+            padding-top: 10px;
+            margin-top: 5rem;
+        }
+        h3, .h3 {
+            font-size: 1rem;
+        }
+        #zooText {
+            font-size: 1.5rem !important;
+        }
+        p.text-overlay {
+            padding: 10px 0px !important;
+        }
+        p.text-overlay span {
+            display: none;
+        }
+        div.middle-land {
+            left: 50%;
+            width: 140%;
+        }
+        div.middle-sea {
+            left: 50%;
+            width: 140%;
+        }
+        p.text-overlay {
+            padding: 16px 0px;
+        }
+        #divAppend {
+            margin-top: 1rem;
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        div.flex {
+            font-size: 1.4rem;
+        }
+        .admin-btn {
+            height: 30px;
+            font-size: 0.5rem;
+            margin: 10px 5px 25px 5px;
+        }
+        a.name {
+            font-size: 2rem;
+        }
+        p.new-col {
+            width: 50%;
+            font-size: 1rem;
+        }
+        .col-md-4 {
+            flex: 0 0 100.333333%;
+            max-width: 100%;
+        }
+        .modal {
+            width: 90vw;
+            height: 90vh;
+        }
+        .form-control {
+            width: 80%;
+        }
+        h4, .h4 {
+            font-size: 1rem;
+        }
+        div.heading-2 p {
+            display: none;
+        }
+        div.heading-2 {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-right: 0px;
+        }
+        div.heading-2 h3 {
+            font-size: 1.6rem;
+            text-align: center;
+        }
+        .top-heading {
+            font-size: 2rem;
+        }
+        #adminImage {
+            display: none;
+        }
+    }

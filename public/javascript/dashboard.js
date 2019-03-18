@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+  verifyAccess() // send access to dashboard withouth authorisation to login page
+
   //set current time to dashboard
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
@@ -18,6 +21,8 @@ $(document).ready(function () {
 
   //declaring variable to be used later
   let $divAppendAdmin = $('#divAppendAdmin');
+
+  const allAnimals = []; //use later to populate edit modal
 
   //for editButton
   let $editName = $('#putName'); //tittle
@@ -61,12 +66,17 @@ $(document).ready(function () {
   </div>
     `);
   }
+  //populate modal for edit
+  function populateModal(id) {
+    conosle.log(allAnimals)
+  }
 
   //Get all animals to admin dashboard
   function getAll() {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3000/animals',
+      url: `${baseUrl}animals`,
+      allAnimals: Response,
       success: function (animals) {
         $.each(animals, (i, animal) => {
           addAnimalAdmin(animal);
@@ -106,11 +116,12 @@ $(document).ready(function () {
   $divAppendAdmin.delegate('.remove', 'click', function (e) { //.delete has not been added to the page yet hence 
     e.preventDefault();
     let $div = $(this).closest('div');
+
     const confirmDelete = confirm("Do you want to Delete this Animal ?")
     if (confirmDelete == true) {
       $.ajax({
         type: 'DELETE',
-        url: 'http://localhost:3000/animals/' + $(this).attr('data-id'),
+        url: `${baseUrl}animals/${$(this).attr('data-id')}`,
         success: function () {
           $div.fadeOut(300, function () {
             $(this).closest('.col-md-4').remove();
@@ -133,6 +144,11 @@ $(document).ready(function () {
     }
   })
 
+  $('.editButton').on("click", function (e) {
+    e.preventDefault();
+    console.log("Should console")
+    populateModal()
+  })
   //Edit animal detail
   $('#saveEdit').on("click", function (e) {
     e.preventDefault();
@@ -152,7 +168,7 @@ $(document).ready(function () {
     //$('#saveEdit').trigger("reset");
     $.ajax({
       type: 'PUT',
-      url: 'http://localhost:3000/animals/' + $("#animalId").val(),
+      url: `${baseUrl}animals/${$("#animalId").val()}`,
       data: animal,
       success: function () {
         getAll();
@@ -181,7 +197,7 @@ $(document).ready(function () {
     $('#postForm').trigger("reset");
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/animals',
+      url: `${baseUrl}animals`,
       data: animal,
       success: function (newAnimal) {
         addAnimalAdmin(newAnimal);
@@ -207,4 +223,23 @@ $(document).ready(function () {
     localStorage.removeItem("username")
     window.location.replace('../index.html')
   });
+
+  //To verify if user requesting admin data has admin authorisation
+  function verifyAccess() {
+    let password = localStorage.getItem('password');
+    let username = localStorage.getItem('username')
+    $.ajax({
+      type: 'GET',
+      url: `${baseUrl}admin`,
+      success: function (admin) {
+        let adminUsername = admin.username;
+        let adminPass = admin.password;
+
+        if (adminUsername !== username || adminPass !== password) {
+          console.log('Access Denied')
+          window.location.replace('./log-in.html')
+        }
+      }
+    });
+  }
 })
