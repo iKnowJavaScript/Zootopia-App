@@ -68,7 +68,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading...');
+        $divAppendAdmin.append(`<h3>Cannot Get ${$searchName} Match in Database.</h3>`)
       }
     });
   });
@@ -87,7 +87,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading...');
+        $divAppendAdmin.append(`<h3>Cannot Get Sea Animal Match in Database.</h3>`)
       }
     });
   });
@@ -106,7 +106,7 @@ $(document).ready(() => {
         })
       },
       error: function () {
-        alert('error loading...');
+        $divAppendAdmin.append(`<h3>Cannot Get Sea Animal Match in Database.</h3>`)
       }
     });
   });

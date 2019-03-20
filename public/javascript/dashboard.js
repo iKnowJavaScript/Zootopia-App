@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   verifyAccess() // send access to dashboard withouth authorisation to login page
-
+  
   //set current time to dashboard
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
@@ -22,7 +22,7 @@ $(document).ready(function () {
   //declaring variable to be used later
   let $divAppendAdmin = $('#divAppendAdmin');
 
-  const allAnimals = []; //use later to populate edit modal
+  let allAnimals = []; //use later to populate edit modal
 
   //for editButton
   let $editName = $('#putName'); //tittle
@@ -57,8 +57,8 @@ $(document).ready(function () {
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
           <input type="text" id="animalId" value="${animal.id}" style="display:none;">
-          <button type="button" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
-          <button type="button" data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
+          <button type="button" onclick="populateModal(${animal.id})" data-id=${animal.id} id="editButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm btn-outline-secondary noedit editButton">Edit   </button>
+          <button type="button"  data-id=${animal.id} class="btn btn-sm btn-outline-secondary remove">Delete</button>
           </div>
         </div>
       </div>
@@ -67,17 +67,29 @@ $(document).ready(function () {
     `);
   }
   //populate modal for edit
-  function populateModal(id) {
-    conosle.log(allAnimals)
+
+  populateModal = (id) => {
+    animal = allAnimals.find((e) => e.id == id);
+    $editName.val(`${animal.name}`);
+    $editSpecies.val(`${animal.species}`);
+    $editFamily.val(`${animal.family}`);
+    $editClass.val(`${animal.class}`);
+    $editExternal.val(`${animal.external}`);
+    $editCategory.find(":selected").text(`${animal.category}`);
+    $editImage.val(`${animal.image}`);
+    $editInfo.val(`${animal.info}`);
+    ID = animal.id;
   }
+  let ID = "";
+  ID = parseInt(ID); // this is passed inside PUT method
 
   //Get all animals to admin dashboard
   function getAll() {
     $.ajax({
       type: 'GET',
       url: `${baseUrl}animals`,
-      allAnimals: Response,
       success: function (animals) {
+        allAnimals = animals;
         $.each(animals, (i, animal) => {
           addAnimalAdmin(animal);
         })
@@ -101,13 +113,18 @@ $(document).ready(function () {
       type: 'GET',
       url: 'http://localhost:3000/animals?q=' + $editSearch2,
       success: function (animals) {
-        $.each(animals, (i, animal) => {
-          addAnimalAdmin(animal);
-          $editSearch.val('')
-        })
+        if (animals.length > 0) {
+          $.each(animals, (i, animal) => {
+            addAnimalAdmin(animal);
+            $editSearch.val('')
+          })
+        } else {
+          $divAppendAdmin.append(`<h3>Cannot Get "${$editSearch2}" Match in Databases.</h3>
+          <button class="btn btn-primary" onclick="getAll()">Get All</button>`)
+        }
       },
       error: function () {
-        alert('error loading animal');
+        alert('Error contacting Database')
       }
     });
   });
@@ -133,7 +150,7 @@ $(document).ready(function () {
               type: 'success',
               title: 'Animal deleted from the database',
               showConfirmButton: false,
-              timer: 1500
+              timer: 2000
             })
           })
         },
@@ -144,15 +161,14 @@ $(document).ready(function () {
     }
   })
 
-  $('.editButton').on("click", function (e) {
-    e.preventDefault();
-    console.log("Should console")
-    populateModal()
-  })
+
   //Edit animal detail
   $('#saveEdit').on("click", function (e) {
     e.preventDefault();
     $('#postForm').validate();
+
+    // const id = $("#animalId").val();
+    // let ID = $(this).attr('data-id');
 
     const animal = {
       name: $editName.val(),
@@ -168,9 +184,16 @@ $(document).ready(function () {
     //$('#saveEdit').trigger("reset");
     $.ajax({
       type: 'PUT',
-      url: `${baseUrl}animals/${$("#animalId").val()}`,
+      url: `${baseUrl}animals/${ID}`,
       data: animal,
       success: function () {
+        Swal.fire({
+          position: 'center',
+          type: 'success',
+          title: 'Animal Edited Successfully',
+          showConfirmButton: false,
+          timer: 2000
+        })
         getAll();
       },
       error: function () {
@@ -182,6 +205,7 @@ $(document).ready(function () {
   //POST new animal to Database
   $('#postForm').on('submit', function (e) {
     e.preventDefault();
+
 
     const animal = {
       name: $name.val(),
