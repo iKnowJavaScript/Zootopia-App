@@ -178,27 +178,31 @@ div.flexContainer {
     color: rgb(80, 76, 76);
 }
 
-.col-sm-8 {
-    display: inline-flex;
-    margin-bottom: 0.5rem;
-    max-width: 96.666667%;
-    justify-content: space-between;
-}
-.form-control {
-    margin-left: 2rem;
-    width: 22rem;
-}
-.modal-body {
-    padding: 1rem 1rem 0rem 1rem;
-}
-.modal-content {
-    width: 90%;
-}
-.modal-dialog {
-    margin: .2rem auto;
-}
+
 
     /* For admin too */
+    @media only screen and (min-width: 800px)  {
+        .col-sm-8 {
+            display: inline-flex;
+            margin-bottom: 0.5rem;
+            max-width: 96.666667%;
+            justify-content: space-between;
+        }
+        .form-control {
+            margin-left: 2rem;
+            width: 22rem;
+        }
+        .modal-body {
+            padding: 1rem 1rem 0rem 1rem;
+        }
+        .modal-content {
+            width: 90%;
+        }
+        .modal-dialog {
+            margin: .2rem auto;
+        }
+    }
+
     @media only screen and (min-width : 300px) and (max-width : 799px){
         div.container-top {
             height: 60vh;
