@@ -9,7 +9,7 @@ div.container-top{
     background: url(../img/01.jpg) no-repeat center;
     background-size: cover;
     height: 90vh;
-    width: 98vw;
+    width: 100%;
     border-top-left-radius : 10px;
     border-top-right-radius : 10px;
     margin: 0 auto;
@@ -160,7 +160,7 @@ p.text-overlay:hover {
     background: url(../img/new-collection.jpg) no-repeat center;
     background-size: cover;
     height: 70vh;
-    width: 98vw;
+    width: 100%;
     padding-top: 60px;
 }
 .new-col {
