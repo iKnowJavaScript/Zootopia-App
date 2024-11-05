@@ -148,6 +148,7 @@ $(document).ready(() => {
 
 
   function viemInModal(animal) {
+    $modalBody.empty();
     $modalBody.append(`
     <img src=${animal.image} class="img-thumbnail" alt="${animal.name} image">
       <div class="card-body">
